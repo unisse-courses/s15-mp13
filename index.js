@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-app.use(express.static(__dirname));
+
 
 app.listen(port, function(){
     console.log("Listening to http://localhost:" + port);
@@ -21,15 +21,12 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 
+app.use(express.static(__dirname));
+
+
 //ROUTERS
 app.get('/', function(req, res){
     res.render('landing',{ 
-        layout: "landing"
-    });
-});
 
-app.get('/profile', function(req, res){
-    res.render('profile',{ 
-        layout: "profile"
     });
 });

@@ -1,7 +1,7 @@
 {
   "name": "s15-mp13",
   "version": "1.0.0",
-  "description": "CCAPDEV MP",
+  "description": "* Catahan, Anna Kumiko\r * Cai, Mark Jayson\r * Ranjo, Joshua Aaron P",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,13 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/unisse-courses/s15-mp13.git"
   },
-  "author": "Catahan, Cai, Ranjo",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/unisse-courses/s15-mp13/issues"
   },
   "homepage": "https://github.com/unisse-courses/s15-mp13#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.0",
+    "handlebars": "^4.7.3"
   }
 }
