@@ -9,5 +9,9 @@
 * Ranjo, Joshua Aaron P
 
 ## Project Setup
-1. ``` npm install ```
-2. ``` node index.js ```
+1. Install dependencies:
+    ``` npm install ```
+2. Run the server:
+    ``` node index.js ```
+3. Navigate:
+    ``` http://localhost:3000/ ```
