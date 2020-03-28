@@ -9,9 +9,5 @@
 * Ranjo, Joshua Aaron P
 
 ## Project Setup
-```
-npm install
-```
-```
-node index.js
-```
+1. ``` npm install ```
+2. ``` node index.js ```
