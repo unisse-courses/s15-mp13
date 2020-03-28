@@ -1,6 +1,4 @@
-const express = require("express");
-const hbs = require("express-handlebars");
-
+const express = require('express')
 const app = express();
 const port = 3000;
 
@@ -21,22 +19,8 @@ app.set('view engine', 'hbs');
 
 app.get('/', function(req, res){
     res.render('login',{ 
-        title: "Login/Register",
+        title: "Login | BucketList",
         layout: "login"
-    })
-});
-
-app.get('/home', function(req, res){
-    res.render('home',{
-        title: "Home",
-        auctions
-    })
-});
-
-app.get('/auction/:id', function(req,res){
-    res.render('auction',{
-        title: auctions[req.params.id].productName,
-        auction: auctions[req.params.id]
     })
 });
 
