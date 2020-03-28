@@ -7,3 +7,11 @@
 * Catahan, Anna Kumiko
 * Cai, Mark Jayson
 * Ranjo, Joshua Aaron P
+
+## Project Setup
+```
+npm install
+```
+```
+node index.js
+```
