@@ -1,8 +1,20 @@
-    <div data-bs-parallax-bg="true" style="height:500px;background-image:url(https://unsplash.it/1800/900?image=1051);background-position:center;background-size:cover;">
-        <h1 class="text-center d-lg-flex justify-content-lg-center align-items-lg-center">BucketList</h1>
-        <p class="text-center">The Place to Gather Ideas for Things to Accomplish in Life<br></p>
+<div>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button fixed-top" style="height: 55px;">
+        <div class="container"><a class="navbar-brand" href="#" style="font-family: Acme, sans-serif;">BucketList</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse shadow-lg" id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#team">Team</a></li>
+                </ul><span class="navbar-text actions"> <a class="login" href="#">Log In</a><a class="btn btn-light action-button" role="button" href="#" style="height: 36px;padding-top: 5px;">Register</a></span></div>
+        </div>
+    </nav>
+    <div data-bs-parallax-bg="true" style="height:500px;background-image:url(https://images.unsplash.com/photo-1542359649-31e03cd4d909?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80);background-position:center;background-size:cover;">
+        <h1 class="display-3 text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="padding-top: 107px;color: rgb(0,0,0);font-size: 80px;font-family: Acme, sans-serif;">BucketList</h1>
+        <p class="text-center" style="color: rgb(74,74,74);font-size: 20px;">The place to gather ideas for things to accomplish in life.<br></p>
     </div>
-    <div class="highlight-clean">
+    <div id="about" class="highlight-clean">
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">What is BucketList?</h2>
@@ -12,52 +24,50 @@
             <div class="buttons"></div>
         </div>
     </div>
-    <div class="features-boxed">
+    <div id="features" class="features-boxed">
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Features </h2>
             </div>
             <div class="row justify-content-center features">
-                <div class="col-sm-6 col-md-5 col-lg-3 item">
-                    <div class="box"><i class="fa fa-signing icon"></i>
-                        <h3 class="name">Share</h3><a class="learn-more" href="#">Learn more »</a></div>
+                <div class="col-sm-6 col-md-5 col-lg-3 item" style="opacity: 1;">
+                    <div class="box"><i class="fa fa-signing icon" data-bs-hover-animate="swing"></i>
+                        <h3 class="name">Share</h3><a class="learn-more">Build your own bucketlist and share it to the world.</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-3 item">
-                    <div class="box"><i class="fab fa-searchengin icon"></i>
-                        <h3 class="name">Discover</h3><a class="learn-more" href="#">Learn more »</a></div>
+                    <div class="box"><i class="fab fa-searchengin icon" data-bs-hover-animate="swing"></i>
+                        <h3 class="name">Discover</h3><a class="learn-more">Look for inspiration from what other people share.</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-3 offset-lg-0 item">
-                    <div class="box"><i class="fa fa-slideshare icon"></i>
-                        <h3 class="name">Collaborate</h3><a class="learn-more" href="#">Learn more »</a></div>
+                    <div class="box"><i class="fa fa-slideshare icon" data-bs-hover-animate="swing"></i>
+                        <h3 class="name">Collaborate</h3><a class="learn-more">Tag items as requests to get some help from others.</a></div>
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
-    <div class="highlight-blue">
+    <div id="team" class="features-boxed">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">Feature 1</h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+                <h2 class="text-center">Team</h2>
             </div>
-            <div class="buttons"></div>
+            <div class="row justify-content-center features">
+                <div class="col-sm-6 col-md-5 col-lg-3 item" style="opacity: 1;">
+                    <div class="box"><i class="fa fa-cube icon" data-bs-hover-animate="swing"></i>
+                        <h3 class="name"><strong>CaiMarkJayson</strong></h3><a class="learn-more">filler</a></div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-3 item">
+                    <div class="box"><i class="fas fa-cube icon" data-bs-hover-animate="swing"></i>
+                        <h3 class="name">Algernoot</h3><a class="learn-more">filler</a></div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-3 offset-lg-0 item">
+                    <div class="box"><i class="fa fa-cube icon" data-bs-hover-animate="swing"></i>
+                        <h3 class="name">annakumiko</h3><a class="learn-more">filler</a></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
         </div>
     </div>
-    <div class="highlight-clean">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">Feature 2</h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
-            </div>
-            <div class="buttons"></div>
-        </div>
-    </div>
-    <div class="highlight-blue">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">Feature 3</h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
-            </div>
-            <div class="buttons"></div>
-        </div>
-    </div>
+    <div id="team" class="team-clean"></div>
+    
+</div>
