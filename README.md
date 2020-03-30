@@ -9,9 +9,9 @@
 * Ranjo, Joshua Aaron P
 
 ## Project Setup
-1. Install dependencies:
+1. Install dependencies on the project command line:
     ``` npm install ```
-2. Run the server:
+2. Run the server by inputting:
     ``` node index.js ```
 3. Navigate:
     ``` http://localhost:3000/ ```
