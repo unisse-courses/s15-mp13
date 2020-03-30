@@ -27,12 +27,18 @@ app.use(express.static(__dirname));
 //ROUTERS
 app.get('/', function(req, res){
     res.render('landing',{ 
-
+        layout: 'landing'
     });
 });
 
 app.get('/profile', function(req, res){
     res.render('profile',{ 
+        layout: 'main'
+    });
+});
 
+app.get('/account-settings', function(req, res){
+    res.render('accountsettings',{ 
+        layout: 'main'
     });
 });
