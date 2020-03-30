@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Bootstrap Simple Data Table</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat+Brush">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+
+<body><div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-4"><h2>  Task <b>List</b></h2></div>
+                    <div class="col-sm-4" align="center8">
+                        <div class="search-box">
+                            <input type="text" id="tagsrch" class="form-control" placeholder="Search tags…">
+                        </div>
+                    </div>
+                    <div class="col-sm-4" align="right">
+                    <div>
+                            <button type="button" id="addbtn" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add Task</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Task  <i class="fa fa-sort"></i></th>       <th>Date Added  <i class="fa fa-sort"></i></th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="title">Study for exam</td>
+                        <td class="date">January 10, 2020</td>
+                        <td class="actions">
+                            <a href="#" class="complete" title="Complete" data-toggle="tooltip"><i class="fa fa-check-square-o icon fa-lg"></i></a>
+							<a href="#" class="view" title="View" data-toggle="tooltip"><i class="fab fa-rocketchat icon fa-lg"></i></a>
+                            <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit icon fa-lg"></i></a>
+                            <a href="#" class="delete" title="Delete" data-toggle="tooltip" color=""><i class="fas fa-trash-alt icon fa-lg"></i></a>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+          
+            </div>
+        </div>
+    </div>
+
+<style>
+.complete, .view, .edit, .delete {
+        padding: 11px;
+    }
+    
+.complete:hover, .view:hover, .edit:hover, .delete:hover {
+        color: #1a1a1e;
+    }
+    
+.complete {
+        color: #ffd200;
+    }
+
+.view {
+        color: #008aff;
+    }
+    
+.edit {
+        color: #00ff60;
+    }
+
+.delete {
+        color: #ff3c00;
+    }
+    
+.actions{
+        width: 40%
+    }
+
+.date{
+        width: 20%
+    }
+</style>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/script.min.js"></script>
+</body>
+
+</html>
