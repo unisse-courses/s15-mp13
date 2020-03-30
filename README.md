@@ -11,7 +11,7 @@
 ## Project Setup
 1. Install dependencies on the project command line:
     ``` npm install ```
-2. Run the server by inputting:
+2. Enter the following to run the server:
     ``` node index.js ```
-3. Navigate:
+3. Navigate to the project through:
     ``` http://localhost:3000/ ```
