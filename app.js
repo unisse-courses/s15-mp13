@@ -6,10 +6,11 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-const mongodb = require('mongodb');
-const mongoClient = mongodb.MongoClient;
-const databaseURL = "mongodb://localhost:27017/";
-const dbname = "bucketlistdb";
+/* Skipping this part first */
+// const mongodb = require('mongodb');
+// const mongoClient = mongodb.MongoClient;
+// const databaseURL = "mongodb://localhost:27017/";
+// const dbname = "bucketlistdb";
 
 app.listen(port, function(){
     console.log("Listening to http://localhost:" + port);
