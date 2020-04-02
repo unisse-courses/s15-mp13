@@ -25,11 +25,49 @@
                                     
                                     <div class="col-sm-4" align="right">
                                     <div>
-                                            <button type="button" id="addBTN" onclick="AddTask()" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add Task</button>
+                                            <button type="button" id="addbtn" class="btn btn-info add-new" data-toggle="collapse" data-target="#addTask"><i class="fa fa-plus"></i> Add Task</button>
                                         </div>
                                     </div>
                                 </div>
-                            </div> <br>
+                            </div> 
+                            
+                            <br>
+
+                            <!--Add Task form-->
+                            <div class="collapse" id="addTask">
+                                <h2 style="padding-bottom: 5px;">Add a new task to your list!</h2>
+                                <div class="addTaskContainer">
+                                    <div class="border border-secondary rounded">
+                                        <div class="row" style="padding: 10px;">
+                                            <div class="col-sm-6">
+                                                <input type="text" id="taskTitle"  placeholder="Title..." class="form-control">
+                                        </div>
+                                        </div>
+                                        <div class="row" style="padding: 10px;">
+                                            <div class="col">
+                                                <textarea class="form-control" rows="5" id="taskDesc" placeholder="Description" stye="resize:none; width:80%; margin: 5 auto"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding: 10px;">
+                                            <div class="col">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="checkComplete" value="complete">
+                                                    <label class="form-check-label" for="checkComplete">Complete</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="checkRequest" value="request">
+                                                    <label class="form-check-label" for="checkRequest">Request</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="checkPrivate" value="private">
+                                                    <label class="form-check-label" for="checkPrivate">Private</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <table class="table table-striped table-hover table-bordered">
                                 <thead>
