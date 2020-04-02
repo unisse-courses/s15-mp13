@@ -1,5 +1,3 @@
-$(document).ready(function (){
-
   /* OPEN MODALS */
   var log = document.getElementById("login-div");
   var reg = document.getElementById("register-div");
@@ -81,5 +79,3 @@ $(document).ready(function (){
   function EditTask(){
     document.getElementById("edit-task-div").style.display = "block";
   }
-
-});
