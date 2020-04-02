@@ -1,0 +1,11 @@
+a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #509bb2;
+  text-decoration: underline;
+}
+
