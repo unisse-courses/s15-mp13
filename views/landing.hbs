@@ -113,6 +113,39 @@
         </div>
     </div>
 
+<script>
+    /* OPEN MODALS */
+var log = document.getElementById("login-div");
+var reg = document.getElementById("register-div");
+var logX = document.getElementsByClassName("closeL")[0];
+var regX = document.getElementsByClassName("closeR")[0];
+
+function Login() {
+    log.style.display = "block";
+    document.getElementById("loginBTN").disabled = true;
+    document.getElementById("registerBTN").disabled = true;
+}
+
+function Register() {
+    reg.style.display = "block";
+    document.getElementById("loginBTN").disabled = true;
+    document.getElementById("registerBTN").disabled = true;
+}
+
+// When the user clicks on <span> (x), close the modal
+logX.onclick = function() {
+  log.style.display = "none";
+  document.getElementById("loginBTN").disabled = false;
+  document.getElementById("registerBTN").disabled = false;
+}
+regX.onclick = function() {
+  reg.style.display = "none";
+  document.getElementById("loginBTN").disabled = false;
+  document.getElementById("registerBTN").disabled = false;
+}
+
+</script>
+
 <style>
 #login-div{
     display: none;
