@@ -83,6 +83,7 @@
 {{!-- LOGIN --}}
     <div id="login-div" class="login-clean">
         <form method="post" style="padding-top: 5px;margin-top: -24px;height: 458px;">
+        <span class="closeL">&times;</span>
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><img src="/assets/img/logo.png" style="width: 120px;height: 120px;">
                 <h2 class="text-center" style="font-size: 45px;font-family: Delius, cursive;padding-top: 10px;">Welcome!</h2>
@@ -97,6 +98,7 @@
     <div id="register-div" class="register-photo">
         <div class="form-container">
             <form method="post" style="width: 712px;height: 461px;">
+            <span class="closeR">&times;</span>
                 <h2 class="text-center" style="font-family: Delius, cursive;line-height: 38px;font-size: 40px;"><strong>Registration</strong></h2><input class="form-control" type="text" placeholder="Name" required="" style="margin-top: 40px;">
                 <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" style="margin-top: 16px;" required=""></div><input class="form-control" type="text" placeholder="Username" required="">
                 <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" style="margin-top: 16px;" required=""></div>
@@ -114,6 +116,8 @@
 /* OPEN MODALS */
 var log = document.getElementById("login-div");
 var reg = document.getElementById("register-div");
+var logX = document.getElementsByClassName("closeL")[0];
+var regX = document.getElementsByClassName("closeR")[0];
 
 function Login() {
     log.style.display = "block";
@@ -122,6 +126,28 @@ function Login() {
 function Register() {
     reg.style.display = "block";
 }
+
+// When the user clicks on <span> (x), close the modal
+logX.onclick = function() {
+  log.style.display = "none";
+}
+regX.onclick = function() {
+  reg.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == log) {
+    log.style.display = "none";
+  }
+}
+
+window.onclick = function(event) {
+  if (event.target == reg) {
+    reg.style.display = "none";
+  }
+}
+
 </script>
 
 <style>
@@ -150,4 +176,18 @@ function Register() {
     overflow: hidden;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);}
+
+/* The Close Button */
+.closeR, .closeL {
+  color: #000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeR:hover, .closeR:focus, .closeL:hover, .closeL:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 </style>
