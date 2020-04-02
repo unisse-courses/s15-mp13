@@ -68,8 +68,7 @@ var RegisterValidate = function(){
                 alert("User already exists.")
             }
         });
-}
-
+    }
 
 /* VIEW COMMENTS */
 function ViewComments(){
