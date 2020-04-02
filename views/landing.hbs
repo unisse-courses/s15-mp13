@@ -88,8 +88,8 @@
             <div class="illustration"><img src="/assets/img/logo.png" style="width: 120px;height: 120px;">
                 <h2 class="text-center" style="font-size: 45px;font-family: Delius, cursive;padding-top: 10px;">Welcome!</h2>
             </div>
-            <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username" required=""></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" required=""></div>
+            <div class="form-group"><input class="form-control" type="text" name="username" id="username" placeholder="Username" required=""></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" id="password" placeholder="Password" required=""></div>
             <div class="form-group"><button id="loginVal" onclick="LoginValidate()" class="btn btn-primary btn-block" type="submit" style="margin-top: 47px;padding: 5px;">Log In</button></div>
             </form>
     </div>
@@ -99,14 +99,16 @@
         <div class="form-container">
             <form method="post" style="width: 712px;height: 461px;">
             <span class="closeR">&times;</span>
-                <h2 class="text-center" style="font-family: Delius, cursive;line-height: 38px;font-size: 40px;"><strong>Registration</strong></h2><input class="form-control" type="text" placeholder="Name" required="" style="margin-top: 40px;">
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" style="margin-top: 16px;" required=""></div><input class="form-control" type="text" placeholder="Username" required="">
-                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" style="margin-top: 16px;" required=""></div>
-                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" required=""></div>
+                <h2 class="text-center" style="font-family: Delius, cursive;line-height: 38px;font-size: 40px;"><strong>Registration</strong></h2>
+                <input class="form-control" type="text" placeholder="Name" id="rName" required="" style="margin-top: 40px;">
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" id="rEmail" style="margin-top: 16px;" required=""></div>
+                <input class="form-control" type="text" placeholder="Username" id="rUsername" required="">
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" id="rPass1" style="margin-top: 16px;" required=""></div>
+                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" id="rPass2" required=""></div>
                 <div class="form-group">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" required="">I agree to the license terms.</label></div>
                 </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="padding: 5px;margin-top: 19px;margin-bottom: -25px;">Sign Up</button></div>
+                <div class="form-group"><button id="regVal" onclick="RegisterValidate()" class="btn btn-primary btn-block" type="submit" style="padding: 5px;margin-top: 19px;margin-bottom: -25px;">Sign Up</button></div>
             </form>
         </div>
     </div>
@@ -159,11 +161,32 @@ var LoginValidate = function() {
             alert("Invalid username or password.");
         }
     });
-
 }
 
 /* VALIDATE REGISTRATION -- IF USER DOES NOT EXIST YET */
+var RegisterValidate = function(){
+    var email = document.getElementById("rName").value;
+    var email = document.getElementById("rEmail").value;
+    var email = document.getElementById("rUsername").value;
+    var email = document.getElementById("rPass1").value;
+    var email = document.getElementById("rPass2").value;
 
+    var newUser = {
+        email:email,
+        username:username,
+        password:password,
+        }    
+        
+        $.post("RegisterValidate", newUser,function(data){
+            if(data===true) {
+                alert("Registration succesful!");
+                window.location.href = '/profile';
+            } else{
+                alert("User already exists.")
+            }
+        });
+    }
+}
 </script>
 
 <style>
