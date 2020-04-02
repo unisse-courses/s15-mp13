@@ -121,33 +121,27 @@ var regX = document.getElementsByClassName("closeR")[0];
 
 function Login() {
     log.style.display = "block";
+    document.getElementById("loginBTN").disabled = true;
+    document.getElementById("registerBTN").disabled = true;
 }
 
 function Register() {
     reg.style.display = "block";
+    document.getElementById("loginBTN").disabled = true;
+    document.getElementById("registerBTN").disabled = true;
 }
 
 // When the user clicks on <span> (x), close the modal
 logX.onclick = function() {
   log.style.display = "none";
+  document.getElementById("loginBTN").disabled = false;
+  document.getElementById("registerBTN").disabled = false;
 }
 regX.onclick = function() {
   reg.style.display = "none";
+  document.getElementById("loginBTN").disabled = false;
+  document.getElementById("registerBTN").disabled = false;
 }
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == log) {
-    log.style.display = "none";
-  }
-}
-
-window.onclick = function(event) {
-  if (event.target == reg) {
-    reg.style.display = "none";
-  }
-}
-
 </script>
 
 <style>
