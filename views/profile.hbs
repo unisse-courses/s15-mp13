@@ -71,7 +71,7 @@
                                             </div>
                                             <div class="col-sm-4" align="right">
                                                 <div>
-                                                    <button type="button" id="pubBtn" onclick="AddTask()" class="btn btn-info add-new" data-toggle="collapse" data-target="#addTask"><i class="fa fa-plus"></i> Publish</button>
+                                                    <button type="button" id="pubBtn" class="btn btn-info add-new" data-toggle="collapse" data-target="#addTask"><i class="fa fa-plus"></i> Publish</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,6 +109,93 @@
                 
             </div>
     </div> <br>
+</div>
+
+<!-- VIEW COMMENTS -->
+<div id="view-comments-div">
+            <h1 class="text-center" style="margin-top: 10px;">Comments</h1>
+            <div class="container" style="margin-top: 20px;">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div>
+                            <h3>task name</h3>
+                            <p style="margin-top: -8px;color: rgb(85,93,101);">task description&nbsp;task description&nbsp;<br></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="margin-top: 0px;">
+                            <h4>Tags</h4>
+                            <div style="margin-left: 20px;">
+                                <p>Paragraph</p>
+                                <p style="margin-top: -8px;">Paragraph</p>
+                                <p style="margin-top: -8px;">Paragraph</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div style="margin-top: 10px;"><input class="border rounded" type="text" placeholder="Write something..." style="width: 760px;margin-left: 10px;"><button class="btn btn-primary" type="button" style="margin-left: 10px;width: 83px;padding-left: 4px;height: 29px;padding-top: 2px;margin-top: -7px;">Comment</button></div>
+                        <div
+                            style="margin-top: 15px;">
+                            <h5 style="width: 570px;margin-left: 40px;color: #057091;margin-top: 20px;">username</h5>
+                            <p style="width: 580px;margin-left: 40px;margin-top: -8px;color: #414144;">Paragraph</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="text-center"><button class="btn btn-primary" onclick="closebtn()" type="button" style="margin-top: 30px;">Close</button> </div>
+</div> 
+
+<!-- EDIT TASK -->
+<div id="edit-task-div">
+    <h1 class="text-center" style="margin-top: 20px;">Update Task</h1>
+    <div style="margin-top: 60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div><input type="text" style="width: 600px;font-size: 20px;" placeholder="Task Title" required=""><textarea style="width: 600px;margin-top: 10px;font-size: 18px;" placeholder="Task Description"></textarea></div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr></tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div style="width: 300px;font-size: 20px;"><input type="text" style="width: 250px;font-size: 16px;" placeholder="Tag 1"><input type="text" style="width: 250px;margin-top: 10px;font-size: 16px;" placeholder="Tag 2"><input type="text" style="width: 250px;font-size: 16px;margin-top: 10px;"
+                            placeholder="Tag 3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-check text-center" style="font-size: 20px;"><input class="form-check-input" type="checkbox" id="formCheck-1" style="margin-top: 8px;"><label class="form-check-label" for="formCheck-1">Private</label></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-check text-center" style="font-size: 20px;"><input class="form-check-input" type="checkbox" id="formCheck-1" style="margin-top: 8px;"><label class="form-check-label" for="formCheck-1">Requested</label></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-check text-center" style="font-size: 20px;"><input class="form-check-input" type="checkbox" id="formCheck-1" style="margin-top: 8px;"><label class="form-check-label" for="formCheck-1">Completed</label></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+    <button class="btn btn-primary" type="button" style="margin-top: 25px;">Update</button>
+    <button class="btn btn-primary" onclick="cancel()" type="button" style="padding-left: 24px0px;margin-left: 14px;margin-top: 25px;">Cancel</button>
+    </div>
+
 </div>
 
 <style>
