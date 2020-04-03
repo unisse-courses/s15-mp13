@@ -14,7 +14,9 @@
   display: table;
   max-width: 900px;
   width: 90%;
+  background-color: #ebf4f6;
   margin: 0 auto;
+  border-radius: 20px;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 }
 
