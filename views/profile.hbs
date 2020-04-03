@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-md-4" style="text-align: center; padding-bottom:10px;">
             
-                <img class="rounded-circle" src="/assets/img/1.png" style="width: 200px;height: 200px;">
-                <h1  style="font-size: 28px;">Display Name</h1>
-                <h1  style="font-size: 20px;color: rgb(93,94,95);">Edit Profile</h1>
-                <p style="width:auto">bio bio bio bio bio&nbsp;bio bio bio bio bio&nbsp;bio bio bio bio bio<br><br>&nbsp;<br></p>
+                <img class="rounded-circle" src="{{{displayPic}}}" style="width: 200px;height: 200px;">
+                <h1  style="font-size: 28px;">{{name}}</h1>
+                <h1  style="font-size: 20px;color: rgb(93,94,95);">{{username}}</h1> <br> <br>
+                <p style="width:auto">{{bio}}<br><br>&nbsp;<br></p>
             
             
         </div>
@@ -90,8 +90,8 @@
 
                                 <tbody>
                                     <tr>
-                                        <td class="title">Study for exam</td>
-                                        <td class="date">January 10, 2020</td>
+                                        <td class="title">{{task}}</td>
+                                        <td class="date">{{date-added}}</td>
                                         <td class="actions">
                                             <button id="completeBTN" onclick="MarkComplete()" class="complete" title="Mark Complete" data-toggle="tooltip"><i class="fa fa-check-square-o icon fa-lg"></i></button>
                                             <button id="commmentsBTN" onclick="ViewComments()" class="view" title="View Comments" data-toggle="tooltip"><i class="fab fa-rocketchat icon fa-lg"></i></button>
@@ -144,7 +144,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div><input type="text" style="width: 600px;font-size: 20px;" placeholder="Task Title" required=""><textarea style="width: 600px;margin-top: 10px;font-size: 18px;" placeholder="Task Description"></textarea></div>
+                    <div><input type="text" style="width: 600px;font-size: 20px;" placeholder="Task Title" required="">
+                    <textarea style="width: 600px;margin-top: 10px;font-size: 18px;" placeholder="Task Description"></textarea></div>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -310,4 +311,7 @@
 .date{
     width: 25%;}
 
+textarea {
+  resize: none;
+}
 </style>
