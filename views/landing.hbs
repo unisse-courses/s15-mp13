@@ -145,12 +145,11 @@
   }
 
   /* VALIDATE LOGIN */
-  var LoginValidate = function() { 
+var LoginValidate = function() { 
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
 
-
-      $.post("LoginValidate", {username:username, password:password}, function(data){
+    $.post("LoginValidate", {username:username, password:password}, function(data){
           if(data === true) {
               alert("Login succesful!");
               window.location.href = '/profile';
@@ -160,20 +159,25 @@
               alert("Invalid username or password.");
           }
       });
-  }
+}
 
   /* VALIDATE REGISTRATION -- IF USER DOES NOT EXIST YET */
   var RegisterValidate = function(){
-      var email = document.getElementById("rName").value;
+      var name = document.getElementById("rName").value;
       var email = document.getElementById("rEmail").value;
-      var email = document.getElementById("rUsername").value;
-      var email = document.getElementById("rPass1").value;
-      var email = document.getElementById("rPass2").value;
+      var username = document.getElementById("rUsername").value;
+      var pass1 = document.getElementById("rPass1").value;
+      var pass2 = document.getElementById("rPass2").value;
 
-      var newUser = {
-          email:email,
-          username:username,
-          password:password,
+    
+    /* checks if password are the same */
+    if(pass1 == pass2){
+
+        var newUser = {
+          name: rName,
+          email: rEmail,
+          username: rUsername,
+          password: rPass1,
           }    
           
           $.post("RegisterValidate", newUser,function(data){
@@ -184,7 +188,20 @@
                   alert("User already exists.")
               }
           });
-      }
+    }
+
+    else{
+        alert("Password does not match. Try again.")
+        clearField('rPass1');
+        clearField('rPass2');
+    }
+  }
+
+/* Clear input field */
+function clearField(field){
+    document.getElementById(field).value = '';
+}
+
 </script>
 
 <style>
