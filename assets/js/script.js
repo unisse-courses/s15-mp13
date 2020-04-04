@@ -1,4 +1,5 @@
 /* VIEW COMMENTS */
+    //displays comment div
     function ViewComments(){
         document.getElementById("view-comments-div").style.display = "block";}
 
