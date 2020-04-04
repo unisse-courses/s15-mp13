@@ -114,7 +114,7 @@
     </div>
 
 <script>
- /* OPEN MODALS */
+  /* OPEN MODALS */
   var log = document.getElementById("login-div");
   var reg = document.getElementById("register-div");
   var logX = document.getElementsByClassName("closeL")[0];
@@ -144,7 +144,7 @@
     document.getElementById("registerBTN").disabled = false;
   }
 
-  /* VALIDATE LOGIN */
+/* VALIDATE LOGIN */
 var LoginValidate = function() { 
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
@@ -157,6 +157,8 @@ var LoginValidate = function() {
 
           else {
               alert("Invalid username or password.");
+              clearField('username');
+              clearField('password');
           }
       });
 }
@@ -180,12 +182,20 @@ var LoginValidate = function() {
           password: rPass1,
           }    
           
-          $.post("RegisterValidate", newUser,function(data){
-              if(data===true) {
+          $.post("RegisterValidate", newUser, function(data){
+              if(data === true) {
+                  /* redirect to new user's profile */
                   alert("Registration succesful!");
                   window.location.href = '/profile';
-              } else{
+              } 
+              
+              else{ /* will clear the form if the user already exists */
                   alert("User already exists.")
+                  clearField('rName');
+                  clearField('rEmail');
+                  clearField('rUsername');
+                  clearField('rPass1');
+                  clearField('rPass2');
               }
           });
     }
