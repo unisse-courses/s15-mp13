@@ -15,9 +15,9 @@ What things you need to install the software
 A step by step series of examples that tell you how to get a development env running
 
 1. Clone this repository: `git clone https://github.com/unisse-courses/s15-mp13.git`
-2. Navigate to the directory: `cd node-mongodb-sample`
+2. Navigate to the directory: `cd s15-mp13`
 3. Install the dependencies: `npm install`   
-4. Run the server: `node index.js`
+4. Run the server: `node app.js`
     * Navigate to `http://localhost:3000/` in the browser to view the app.
 
 ## Team Members:
