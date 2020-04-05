@@ -7,10 +7,8 @@ Bucketlist is a webapp for people who wants a platform to share their bucketlist
 
 What things you need to install the software
 
-```
 * [NodeJS] (https://nodejs.org/en/download/) - Framework used
 * [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/) - Database used
-```
 
 ## Project Setup
 
