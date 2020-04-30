@@ -18,12 +18,25 @@ mongoClient.connect(databaseURL, function(err, client) {
     else console.log("DB connected.")
     const dbo = client.db(dbname);
   
-    dbo.createCollection("list", function(err, res) {
+    dbo.createCollection("users", function(err, res) {
       if (err) throw err;
-      console.log("List collection created.");
+      console.log("Users collection created.");
       client.close();
     });
-  });
+
+    dbo.createCollection("items", function(err, res) {
+        if (err) throw err;
+        console.log("Items collection created.");
+        client.close();
+    });
+
+    dbo.createCollection("comments", function(err, res) {
+        if (err) throw err;
+        console.log("Comments collection created.");
+        client.close();
+    });
+
+});
   
 app.listen(port, function(){
     console.log("Listening to http://localhost:" + port);
