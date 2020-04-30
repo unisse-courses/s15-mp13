@@ -15,24 +15,24 @@ const dbname = "bucketlistdb";
 
 mongoClient.connect(databaseURL, function(err, client) {
     if (err) throw err;
-    else console.log("DB connected.")
+    else console.log("- bucketlistdb connected.")
     const dbo = client.db(dbname);
   
     dbo.createCollection("users", function(err, res) {
       if (err) throw err;
-      console.log("Users collection created.");
+      console.log("- users collection created.");
       client.close();
     });
 
     dbo.createCollection("items", function(err, res) {
         if (err) throw err;
-        console.log("Items collection created.");
+        console.log("- items collection created.");
         client.close();
     });
 
     dbo.createCollection("comments", function(err, res) {
         if (err) throw err;
-        console.log("Comments collection created.");
+        console.log("- comments collection created.");
         client.close();
     });
 
