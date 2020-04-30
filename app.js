@@ -1,3 +1,4 @@
+/* DEPENDENCIES */
 const express = require('express');
 const hbs = require('handlebars');
 const exphbs = require('express-handlebars');
@@ -6,7 +7,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-/* DATABASE STUFF */
+/* DATABASE */
 const mongodb = require('mongodb');
 const mongoClient = mongodb.MongoClient;
 const databaseURL = "mongodb://localhost:27017/";
@@ -39,7 +40,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(__dirname));
 
 
-//ROUTERS
+//ROUTES
 app.get('/', function(req, res){
     res.render('landing',{ 
         layout: 'landing'
