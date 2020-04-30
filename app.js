@@ -13,8 +13,9 @@ const mongoClient = mongodb.MongoClient;
 const databaseURL = "mongodb://localhost:27017/";
 const dbname = "bucketlistdb";
 
-mongoClient.connect(databaseURL, options, function(err, client) {
+mongoClient.connect(databaseURL, function(err, client) {
     if (err) throw err;
+    else console.log("DB connected.")
     const dbo = client.db(dbname);
   
     dbo.createCollection("list", function(err, res) {
