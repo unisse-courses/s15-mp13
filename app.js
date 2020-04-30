@@ -20,7 +20,7 @@ mongoClient.connect(databaseURL, function(err, client) {
   
     dbo.createCollection("list", function(err, res) {
       if (err) throw err;
-      console.log("Collection created!");
+      console.log("List collection created.");
       client.close();
     });
   });
