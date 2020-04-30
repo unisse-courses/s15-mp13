@@ -7,11 +7,13 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+
 /* DATABASE */
-const mongodb = require('mongodb');
-const mongoClient = mongodb.MongoClient;
-const databaseURL = "mongodb://localhost:27017/";
-const dbname = "bucketlistdb";
+/* MONGODB */
+// const mongodb = require('mongodb');
+// const mongoClient = mongodb.MongoClient;
+// const databaseURL = "mongodb://localhost:27017/";
+// const dbname = "bucketlistdb";
 
 mongoClient.connect(databaseURL, function(err, client) {
     if (err) throw err;
@@ -37,7 +39,15 @@ mongoClient.connect(databaseURL, function(err, client) {
     });
 
 });
-  
+
+/* MONGOOSE */
+const mongoose = require(mongoose);
+const databaseURL = "mongodb://localhost:27017/bucketlistdb";
+const options = { useNewUrlParser: true, useUnifiedTopology : true};
+
+mongoose.connect(databaseURL, options);
+
+/*  */  
 app.listen(port, function(){
     console.log("Listening to http://localhost:" + port);
 });
