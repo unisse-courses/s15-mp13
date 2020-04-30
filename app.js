@@ -10,10 +10,10 @@ const port = 3000;
 
 /* DATABASE */
 /* MONGODB */
-// const mongodb = require('mongodb');
-// const mongoClient = mongodb.MongoClient;
-// const databaseURL = "mongodb://localhost:27017/";
-// const dbname = "bucketlistdb";
+const mongodb = require('mongodb');
+const mongoClient = mongodb.MongoClient;
+const databaseURL = "mongodb://localhost:27017/bucketlistdb";
+const dbname = "bucketlistdb";
 
 mongoClient.connect(databaseURL, function(err, client) {
     if (err) throw err;
@@ -41,8 +41,8 @@ mongoClient.connect(databaseURL, function(err, client) {
 });
 
 /* MONGOOSE */
-const mongoose = require(mongoose);
-const databaseURL = "mongodb://localhost:27017/bucketlistdb";
+const mongoose = require('mongoose');
+// const databaseURL = "mongodb://localhost:27017/bucketlistdb";
 const options = { useNewUrlParser: true, useUnifiedTopology : true};
 
 mongoose.connect(databaseURL, options);
