@@ -1,12 +1,14 @@
-const User = mongoose.model('user', userSchema);
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
+    required: [true, "No username provided"],
   },
   password: {
     type: String,
-    required: true,
+    required: [true, "No password provided"],
   },
   displayName: {
     type: String,
@@ -14,7 +16,7 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: [true, "No email provided"],
   },
   profilePic: {
     type: String,
@@ -22,26 +24,19 @@ const userSchema = new mongoose.Schema({
   },
   bio: {
     type: String,
+    maxlength: 300,
   },
-  items: [Items],
+  list: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'items', 
+    required: [true, 'No items provided by the user.'],      
+  }],
+  completed_req: {
+    type: Number,
+  }
 })
 
-const docs = [
-  {username: 'kimi',
-  password: 'sample123',
-  displayName: 'Kimi Catahan',
-  email: 'kimicatahan@gmail.com',
-  profilePic: 'assets\img\1.png',
-  bio: 'I love my country and Aaron Tveit.',
-  },
-  {username: 'rainBowie',
-  password: '_ulan_',
-  displayName: 'Rainbow Dasher',
-  email: 'roygbiv@gmail.com',
-  profilePic: 'https://i.pinimg.com/originals/54/cd/5c/54cd5c476305fb4b50df719a8a2000a0.jpg',
-  bio: 'Colored blue but feeling extremely yellow!',
-  }
-];
+const userModel = mongoose.model('user', userSchema);
 
 User.create(docs, function(err, users){
   if(err) throw err;
