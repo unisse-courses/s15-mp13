@@ -38,8 +38,8 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model('user', userSchema);
 
-User.create(docs, function(err, users){
-  if(err) throw err;
-  console.log(users);
-  console.log("- User accounts created")
-})
+// User.create(docs, function(err, users){
+//   if(err) throw err;
+//   console.log(users);
+//   console.log("- User accounts created")
+// })
