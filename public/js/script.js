@@ -1,3 +1,6 @@
+/* ADD TASK/ITEM */
+
+
 /* MARK TASK AS COMPLETE/DONE  --> change style*/
     function MarkComplete(){
 

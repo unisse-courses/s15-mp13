@@ -4,7 +4,7 @@
         <div class="col-md-4" style="text-align: center; padding-bottom:10px;">
             
                 <img class="rounded-circle" src="{{{displayPic}}}" style="width: 200px;height: 200px;">
-                <h1  style="font-size: 28px;">{{name}}</h1>
+                <h1  style="font-size: 28px;">{{displayName}}</h1>
                 <h1  style="font-size: 20px;color: rgb(93,94,95);">{{username}}</h1> <br> <br>
                 <p style="width:auto">{{bio}}<br><br>&nbsp;<br></p>
             
@@ -34,7 +34,7 @@
                             
                             <br>
 
-                            <!--Add Task form-->
+                            <!-- ADD TASK FORM -->
                             <div class="collapse" id="addTask">
                                 <h2 style="padding-bottom: 5px;">Add a new task to your list!</h2>
                                 <div class="addTaskContainer">
@@ -91,7 +91,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="title">{{task}}</td>
-                                        <td class="date">{{date-added}}</td>
+                                        <td class="date">{{date_added}}</td>
                                         <td class="actions">
                                             <button id="completeBTN" onclick="MarkComplete()" class="complete" title="Mark Complete" data-toggle="tooltip"><i class="fa fa-check-square-o icon fa-lg"></i></button>
                                             <button id="commmentsBTN" onclick="ViewComments()" class="view" title="View Comments" data-toggle="tooltip"><i class="fab fa-rocketchat icon fa-lg"></i></button>
