@@ -1,23 +1,25 @@
-{{!-- LANDING --}}
+<!DOCTYPE html>
 <div>
+    {{!-- NAVBAR --}}
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button fixed-top" style="height: 55px;">
-        <div class="container"><a class="navbar-brand" href="#" style="font-family: Acme, sans-serif;">BucketList</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container">
+            <a class="navbar-brand" href="" style="font-family: Acme, sans-serif;">BucketList</a>
             <div
-                class="collapse navbar-collapse shadow-lg" id="navcol-1">
+                class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#features">Features</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#team">Team</a></li>
                 </ul><span class="navbar-text actions">
-                    <button class="btn btn-light action-button" id="loginBTN" onclick="Login()" style="height: 36px;padding-top: 5px;">Log In</button>
-                    <button class="btn btn-light action-button" id="registerBTN" onclick="Register()" style="height: 36px;padding-top: 5px;">Register</button>
+                   <button class="btn btn-light action-button" id="openLogin" style="height: 36px;padding-top: 5px;">Log In</button>
+                    <button class="btn btn-light action-button" id="openRegister" style="height: 36px;padding-top: 5px;">Register</button>
                 </span></div>
         </div>
     </nav>
 
-    <div data-bs-parallax-bg="true" style="height:500px;background-image:url(https://images.unsplash.com/photo-1542359649-31e03cd4d909?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80);background-position:center;background-size:cover;">
+    <div data-bs-parallax-bg="true" style="margin-top:-45px;background-image:url(https://images.unsplash.com/photo-1542359649-31e03cd4d909?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80);background-position:center;background-size:cover;">
         <h1 class="display-3 text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="padding-top: 107px;color: rgb(0,0,0);font-size: 80px;font-family: Acme, sans-serif;">BucketList</h1>
-        <p class="text-center" style="color: rgb(74,74,74);font-size: 20px;">The place to gather ideas for things to accomplish in life.<br></p>
+        <p class="text-center" style="color: rgb(157, 157, 157);font-size: 20px;"><strong>The place to gather ideas for things to accomplish in life.</strong></p><br>
     </div>
 
     <div id="about" class="highlight-clean">
@@ -25,7 +27,7 @@
             <div class="intro">
                 <h2 class="text-center">What is BucketList?</h2>
                 <p class="text-center">Have you ever thought of the things you could do before you die? Or would you like ideas or goals that would seem fun to do? Then this is the place for you. Here at BucketList you can list down the things you want to accomplish, share
-                    it with other people. look for inspiration. ask help from the friendly community. We want to work together with you. Here at BucketList!<br></p>
+                    it with other people, look for inspiration, ask help from the friendly community. We want to work together with you. Here at BucketList!<br></p>
             </div>
             <div class="buttons"></div>
         </div>
@@ -60,7 +62,7 @@
                 <h2 class="text-center">Team</h2>
             </div>
             <div class="row justify-content-center features">
-                <div class="col-sm-6 col-md-5 col-lg-3 item" style="opacity: 1;">
+                <div class="col-sm-6 col-md-5 col-lg-3 item">
                     <div class="box"><i class="fa fa-cube icon" data-bs-hover-animate="swing"></i>
                         <h3 class="name"><strong>CaiMarkJayson</strong></h3><a class="learn-more">filler</a></div>
                 </div>
@@ -68,7 +70,7 @@
                     <div class="box"><i class="fas fa-cube icon" data-bs-hover-animate="swing"></i>
                         <h3 class="name">Algernoot</h3><a class="learn-more">filler</a></div>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-3 offset-lg-0 item">
+                <div class="col-sm-6 col-md-5 col-lg-3 item">
                     <div class="box"><i class="fa fa-cube icon" data-bs-hover-animate="swing"></i>
                         <h3 class="name"><strong>annakumiko</strong></h3><a class="learn-more">filler</a></div>
                 </div>
@@ -82,68 +84,43 @@
 
 {{!-- LOGIN --}}
     <div id="login-div" class="login-clean">
-        <form method="post" style="padding-top: 5px;margin-top: -24px;height: 458px;">
-        <span class="closeL">&times;</span>
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><img src="/public/img/logo.png" style="width: 120px;height: 120px;">
-                <h2 class="text-center" style="font-size: 45px;font-family: Delius, cursive;padding-top: 10px;">Welcome!</h2>
-            </div>
-            <div class="form-group"><input class="form-control" type="text" name="username" id="username" placeholder="Username" required=""></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" id="password" placeholder="Password" required=""></div>
-            <div class="form-group"><button id="loginVal" onclick="LoginValidate()" class="btn btn-primary btn-block" type="submit" style="margin-top: 47px;padding: 5px;">Log In</button></div>
+        <div class="form-container" style="margin-top: -30px;">
+            <button id="closeL" style="margin-right: 540px;margin-top:50px">&times;</button><br><br>
+            <form method="post" style="padding-top: 5px;height: 480px;">
+                <div class="illustration"><img src="/assets/img/logo.png" style="width: 120px;height: 120px;">
+                    <h2 class="text-center" style="font-size: 45px;font-family: Delius, cursive;padding-top: 10px;">Welcome!</h2>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" id="username" placeholder="Username"><br>
+                    <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+                    <p id="loginError" class="error"> {{loginError}} </p></div>
+                <button id="loginVal" class="btn btn-primary btn-block" type="button" style="padding: 5px;">Log In</button>
+                </div>
             </form>
+        </div>
     </div>
 
 {{!-- REGISTER --}}
     <div id="register-div" class="register-photo">
         <div class="form-container">
-            <form method="post" style="width: 712px;height: 461px;">
-            <span class="closeR">&times;</span>
-                <h2 class="text-center" style="font-family: Delius, cursive;line-height: 38px;font-size: 40px;"><strong>Registration</strong></h2>
-                <input class="form-control" type="text" placeholder="Name" id="rName" required="" style="margin-top: 40px;">
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" id="rEmail" style="margin-top: 16px;" required=""></div>
-                <input class="form-control" type="text" placeholder="Username" id="rUsername" required="">
-                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" id="rPass1" style="margin-top: 16px;" required=""></div>
-                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" id="rPass2" required=""></div>
+            <form method="post" style="padding-top: 5px;height: 530px">
+                <h2 class="text-center" style="font-family: Delius, cursive;line-height: 38px;font-size: 40px;;margin-top: 50px"><strong>Registration</strong></h2>
                 <div class="form-group">
-                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" required="">I agree to the license terms.</label></div>
+                    <input class="form-control" type="text" placeholder="First Name" id="rFName"><br>
+                    <input class="form-control" type="text" placeholder="Last Name (Optional)" id="rLName"><br>
+                    <input class="form-control" type="email" name="email" placeholder="Email" id="rEmail"><br>
+                    <input class="form-control" type="text" placeholder="Username" id="rUsername"><br>
+                    <input class="form-control" type="password" name="password" placeholder="Password" id="rPass1"><br>
+                    {{!-- <input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" id="rPass2"> --}}
+                    <p id="regError" class="error"> {{regError}} </p></div>
+                    <button id="regVal" class="btn btn-primary btn-block" type="button" style="padding: 5px">Sign Up</button>
                 </div>
-                <div class="form-group"><button id="regVal" onclick="RegisterValidate()" class="btn btn-primary btn-block" type="submit" style="padding: 5px;margin-top: 19px;margin-bottom: -25px;">Sign Up</button></div>
             </form>
+            <button id="closeR" style="margin-right: 260px;margin-top: -515px">&times;</button><br><br>
         </div>
     </div>
 
 <script>
-  /* OPEN MODALS */
-  var log = document.getElementById("login-div");
-  var reg = document.getElementById("register-div");
-  var logX = document.getElementsByClassName("closeL")[0];
-  var regX = document.getElementsByClassName("closeR")[0];
-
-  function Login() {
-      log.style.display = "block";
-      document.getElementById("loginBTN").disabled = true;
-      document.getElementById("registerBTN").disabled = true;
-  }
-
-  function Register() {
-      reg.style.display = "block";
-      document.getElementById("loginBTN").disabled = true;
-      document.getElementById("registerBTN").disabled = true;
-  }
-
-  // When the user clicks on <span> (x), close the modal
-  logX.onclick = function() {
-    log.style.display = "none";
-    document.getElementById("loginBTN").disabled = false;
-    document.getElementById("registerBTN").disabled = false;
-  }
-  regX.onclick = function() {
-    reg.style.display = "none";
-    document.getElementById("loginBTN").disabled = false;
-    document.getElementById("registerBTN").disabled = false;
-  }
-
 /* VALIDATE LOGIN */
 var LoginValidate = function() { 
       var username = $("#username").val();
@@ -220,45 +197,3 @@ function clearField(field){
 }
 
 </script>
-
-<style>
-#login-div{
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 120px; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);}
-
-#register-div{
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 90px; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%; 
-    overflow: hidden;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);}
-
-/* The Close Button */
-.closeR, .closeL {
-  color: #000;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.closeR:hover, .closeR:focus, .closeL:hover, .closeL:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-</style>

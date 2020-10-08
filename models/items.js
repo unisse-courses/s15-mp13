@@ -1,25 +1,23 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const itemSchema = new mongoose.Schema(
+var itemSchema = new mongoose.Schema(
   {
-    title: { type: String, required: [true, "Fill up item title provided"], },
-    description: { type: String, maxlength: 300, },
-    date_added: { type: Date },
-    is_requested: { type: Boolean },
-    is_complete: { type: Boolean },
-    is_private: { type: Boolean },
+    title: String,
+    description: String,
+    dateAdded: Date,
+    isRequested: Boolean,
+    isComplete: Boolean,
+    isPrivate: Boolean,
     tags:[{
-      tag1:{ type: String, maxlength: 30 },
-      tag2:{ type: String, maxlength: 30 },
-      tag3:{ type: String, maxlength: 30 },
+      tag1: String,
+      tag2: String,
+      tag3: String,
     }],
     comments: [{
-      type: Schema.Types.ObjectId, 
-      ref: 'comments', 
-      required: [true, 'No comments listed.'],      
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'comments',   
     }],
   }
 );
 
-const itemModel = mongoose.model('item', PostSchema);
+module.exports = mongoose.model("items", itemSchema);

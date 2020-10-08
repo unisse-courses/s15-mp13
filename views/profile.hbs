@@ -1,11 +1,14 @@
-<!-- PROFILE -->
+<!DOCTYPE html>
+
+<title> {{fullName}} (@{{username}})</title>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4" style="text-align: center; padding-bottom:10px;">
             
                 <img class="rounded-circle" src="{{{displayPic}}}" style="width: 200px;height: 200px;">
-                <h1  style="font-size: 28px;">{{displayName}}</h1>
-                <h1  style="font-size: 20px;color: rgb(93,94,95);">{{username}}</h1> <br> <br>
+                <h1  style="font-size: 28px;">{{fullName}}</h1>
+                <h1  style="font-size: 20px;color: rgb(93,94,95);">@{{username}}</h1> <br> <br>
                 <p style="width:auto">{{bio}}<br><br>&nbsp;<br></p>
             
             
@@ -51,7 +54,7 @@
                                         </div>
                                         <div class="row" style="padding: 10px;">
                                             <div class="col-sm-7">
-                                                <input type="text" id="taskTitle"  placeholder="Tags" class="form-control" maxlength="50">
+                                                <input type="text" id="taskTags"  placeholder="Tags" class="form-control" maxlength="50">
                                             </div>
                                         </div>
                                         <div class="row" style="padding: 10px;">
@@ -89,17 +92,18 @@
                                 </thead>
 
                                 <tbody>
+                                    {{#each tasks}}
                                     <tr>
-                                        <td class="title">{{task}}</td>
-                                        <td class="date">{{date_added}}</td>
+                                        <td class="title">{{taskName}}</td>
+                                        <td class="date">{{dateAdded}}</td>
                                         <td class="actions">
-                                            <button id="completeBTN" onclick="MarkComplete()" class="complete" title="Mark Complete" data-toggle="tooltip"><i class="fa fa-check-square-o icon fa-lg"></i></button>
-                                            <button id="commmentsBTN" onclick="ViewComments()" class="view" title="View Comments" data-toggle="tooltip"><i class="fab fa-rocketchat icon fa-lg"></i></button>
-                                            <button id="editBTN" onclick="EditTask()"class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit icon fa-lg"></i></button>
-                                            <button id="deleteBTN" onclick="Delete()"class="delete" title="Delete" data-toggle="tooltip" color=""><i class="fas fa-trash-alt icon fa-lg"></i></button>
+                                            <button id="completeBTN" class="complete" title="Mark Complete" data-toggle="tooltip"><i class="fa fa-check-square-o icon fa-lg"></i></button>
+                                            <button id="commmentsBTN" class="view" title="View Comments" data-toggle="tooltip"><i class="fab fa-rocketchat icon fa-lg"></i></button>
+                                            <button id="editBTN" class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit icon fa-lg"></i></button>
+                                            <button id="deleteBTN" class="delete" title="Delete" data-toggle="tooltip" color=""><i class="fas fa-trash-alt icon fa-lg"></i></button>
                                         </td>
                                     </tr>
-                                   
+                                   {{/each}}
                                 </tbody>
                             </table>
                           
@@ -186,55 +190,3 @@
             </div>
         </div>
     </div>
-
-<style>
-#view-comments-div, #edit-task-div{
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 90px; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%; 
-    overflow: hidden; 
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);}
-
-.complete, .view, .edit, .delete {
-    padding: 5px;}
-                    
-.complete:hover, .view:hover, .edit:hover, .delete:hover {
-    color: #1a1a1e; }
-                    
-.complete {
-    color: #ffd200; 
-    background-color: Transparent;
-    border: none;    
-}
-                
-.view {
-    color: #008aff; 
-    background-color: Transparent;
-    border: none;    }
-                    
-.edit {
-    color: #00ff60;
-    background-color: Transparent;
-    border: none;    }
-
-.delete {
-    color: #ff3c00;
-    background-color: Transparent;
-    border: none;    }
-
-.actions{
-    width: 25%;}
-
-.date{
-    width: 25%;}
-
-textarea {
-  resize: none;
-}
-</style>
