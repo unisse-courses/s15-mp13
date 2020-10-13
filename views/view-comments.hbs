@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<title>BucketList | Comments</title>
+
+<h6 style="text-decoration: underline; margin-left: 15px" onclick="window.location.href = '/profile'"> < Back to profile </h6>
+<div class="form-container">
+    <h1 class="text-center">Comments</h1>
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-8">
+                <div>
+                    <h3>{{title}}</h3>
+                    <p style="margin-top: -8px;color: rgb(85,93,101);">{{description}}<br></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="margin-top: 0px;">
+                    <h3>Tags</h3>
+                    <div style="margin-left: 20px;">
+                        <p>{{tag1}}</p>
+                        <p style="margin-top: -8px;">{{tag2}}</p>
+                        <p style="margin-top: -8px;">{{tag3}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="margin-top: 10px;">
+                    <input class="border rounded" type="text" placeholder="Write something..." style="width: 760px;margin-left: 10px;">
+                    <button class="btn btn-primary" type="button" style="margin-left: 10px;width: 83px;padding-left: 4px;height: 29px;padding-top: 2px;margin-top: -7px;">Comment</button>
+                </div> <br>
+                {{#each commentsList}}
+                <div style="margin-top: 15px;">
+                    <h5 style="width: 570px;margin-left: 40px;color: #057091;margin-top: 20px;">{{username}}</h5>
+                    <p style="width: 580px;margin-left: 40px;margin-top: -8px;color: #414144;">{{comment}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

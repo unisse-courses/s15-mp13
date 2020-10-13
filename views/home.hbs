@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<title>BucketList | Home</title>
+
+{{!-- needs fixing --}}
+
+<div>
+   <h3>Home</h3> 
+
+   <table style="margin-top: 10px;">
+      <tbody>
+          {{#each tasks}}
+          <tr>
+              <td class="date">{{username}}</td>
+              <td class="title">{{title}}</td>
+          </tr>
+          {{/each}}
+      </tbody>
+  </table>
+<div>

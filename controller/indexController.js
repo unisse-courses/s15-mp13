@@ -3,23 +3,54 @@ const saltRounds = 10;
 
 /* MODELS */
 const commentModel = require('../models/comments');
-const itemModel = require('../models/items');
+const taskModel = require('../models/tasks');
 const userModel = require('../models/users');
 const db = require('../models/db');
+const tasks = require('../models/tasks');
+const comments = require('../models/comments');
 
 /* CONSTRUCTORS and other FUNCTIONS */
-function addUser(firstName, lastName, email, username, password, bio) {
+function generateTaskID() {
+	var taskID = "T";
+	var idLength = 8;
+
+	for (var i = 0; i < idLength; i++) {
+		taskID += (Math.round(Math.random() * 10)).toString();
+	}
+
+	return taskID;
+}
+
+function addUser(firstName, lastName, email, username, password) {
 	var newUser = {
 		firstName: firstName,
 		lastName: lastName,
 		email: email,
 		username: username,
 		password: password,
-		bio: bio,
-		// img
+		bio: "",
+		displayPic: "/assets/img/default.jpg"
 	};
 
 	return newUser;
+}
+
+function newTask(taskID, username, title, description, isRequested, isPrivate, tag1, tag2, tag3) {
+	var newTask = {
+		taskID: taskID,
+		username: username,
+		title: title,
+		description: description,
+		dateAdded: new Date(),
+		isRequested: isRequested,
+		isComplete: false,
+		isPrivate: isPrivate,
+		tag1: tag1,
+		tag2: tag2,
+		tag3: tag3
+	};
+
+	return newTask;
 }
 
 /* MAIN FUNCTIONS */
@@ -61,7 +92,7 @@ const rendFunctions = {
 
 	postLogout: function(req, res) {
 		req.session.destroy();
-		res.redirect("login");
+		res.redirect('landing');
 	},
 
 	postRegister: async function(req, res, next) {
@@ -79,8 +110,7 @@ const rendFunctions = {
 				res.send({status: 402});
 
 			else{ // email and username is available
-				var bio = '';
-				var user = addUser(firstName, lastName, email, username, password, bio);
+				var user = addUser(firstName, lastName, email, username, password);
 
 				userModel.create(user, function(err){		
 					if (err) {
@@ -98,28 +128,130 @@ const rendFunctions = {
 		}
 	},
 
-	getProfile: function(req, res, next) {
+	getHome: function(req, res, next) {
 		if (req.session.user){
-			res.render('profile', {
-				fullName: req.session.user.firstName + " " + req.session.user.lastName,
-				username: req.session.user.username,
-				bio: req.session.user.bio,
+			//display all public tasks
+			taskModel.find({isPrivate: false}, function(err, data) {
+				var details = JSON.parse(JSON.stringify(data));
+				var taskList = details;	
+	
+					console.log(taskList);
+	
+					res.render('home', {
+						tasks: taskList,
+				});
+			});
+		} else {
+			res.redirect('landing');
+		}
+	},
 
-				// tasks: ,
+	getProfile: async function(req, res, next) {
+		if (req.session.user){
+			console.log(req.session.user);
+
+		// get tasks
+		// var taskList = await taskModel.aggregate([
+		// 	{$match: {userID: req.session.user.userID}},
+		// 	{$lookup: {
+		// 			from: "tasks",
+		// 			localField: "userID",
+		// 			foreignField: "userID",
+		// 			as: "taskList" 
+		// 	}},
+		// 	{$unwind: "$taskList"}
+		// ]);
+
+		taskModel.find({username: req.session.user.username}, function(err, data) {
+			var details = JSON.parse(JSON.stringify(data));
+			var taskList = details;	
+
+		console.log(taskList);
+
+				res.render('profile', {
+					fullName: req.session.user.firstName + " " + req.session.user.lastName,
+					username: req.session.user.username,
+					bio: req.session.user.bio,
+					tasks: taskList,
+			});
 		});
 		} else {
-			res.redirect('/');
+			res.redirect('landing');
 		}
 	},
 
 	getSettings: function(req, res, next) {
 		if (req.session.user){
 			res.render('settings', {
-				
+				firstName: req.session.user.firstName,
+				lastName: req.session.user.lastName,
+				firstName: req.session.user.firstName,
+				bio: req.session.user.bio,
+				email: req.session.user.email,
 		});
 		} else {
-			res.redirect('/');
+			res.redirect('landing');
 		}
+	},
+
+	postAddTask: async function(req, res, next) {
+		let { title, description, isRequested, isPrivate, tag1, tag2, tag3 } = req.body;
+
+		var taskID = generateTaskID();
+		var task = newTask(taskID, req.session.user.username, title, description, isRequested, isPrivate, tag1, tag2, tag3);
+		console.log(task);
+
+		taskModel.create(task, function(err) {
+				if (err)
+					res.send({status: 500});
+
+				else{
+					res.send({status: 200});
+					console.log("-- Task added.")
+				}
+		})
+	},
+
+	getTaskComments: async function(req, res, next) {
+		var taskID = req.params.taskID;
+		console.log(taskID);
+		
+		taskModel.find({taskID: taskID}, function(err, data) {
+			var details = JSON.parse(JSON.stringify(data));
+			var task = details;	
+
+			commentModel.find({taskID: taskID}, function(err, data) {
+				var details = JSON.parse(JSON.stringify(data));
+				var commentsList = details;	
+				// console.log(commentsList);
+				res.render('view-comments', {
+					title: task[0].title,
+					description: task[0].description,
+					tag1: task[0].tag1,
+					tag2: task[0].tag2,
+					tag2: task[0].tag3,
+					commentsList: commentsList,
+				});
+			});		
+		});		
+	},
+
+	getEditTask: async function(req, res, next) {
+		var taskID = req.params.taskID;
+		console.log(taskID);
+		
+		taskModel.find({taskID: taskID}, function(err, data) {
+			var details = JSON.parse(JSON.stringify(data));
+			var task = details;	
+
+				res.render('edit-task', {
+					title: task[0].title,
+					description: task[0].description,
+					tag1: task[0].tag1,
+					tag2: task[0].tag2,
+					tag2: task[0].tag3,
+			});
+		});	
 	},
 
 }

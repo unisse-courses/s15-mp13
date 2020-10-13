@@ -112,4 +112,44 @@ $(document).ready(function() {
 		}
 	});
 
+	// ADD TASK
+	$('button#publishTaskBTN').click(function() {
+		var title = $('#taskTitle').val();
+		var desciption = $('#taskDesc').val();
+		var tag1 = $('#tag1').val();
+		var tag2 = $('#tag2').val();
+		var tag3 = $('#tag3').val();
+		var isRequested = $('#isRequested').val();
+		var isPrivate = $('#isPrivate').val();
+
+		console.log(desciption);
+
+		if(isRequested.checked)
+			isRequested = true;
+		else isRequested = false;
+
+		if(isPrivate.checked)
+			isPrivate = true;
+		else isPrivate = false;
+
+		$('p#addTaskError').text('');
+		
+		if (validator.isEmpty(title)) $('p#addTaskError').text('Please enter task title.');
+		
+		else {
+			$.post('/add-task', {title: title, desciption: desciption, tag1: tag1, tag2: tag2, tag3: tag3, isRequested: isRequested, isPrivate: isPrivate}, function(res) {
+				switch (res.status){
+					case 200: {
+						window.location.href = '/profile';
+						break;
+					}
+					case 500: {
+						$('p#addTaskError').text('Error adding task.');
+						break;
+					}
+				}
+			});
+		}
+	});
+
 });

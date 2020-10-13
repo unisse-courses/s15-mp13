@@ -8,11 +8,6 @@ var userSchema = new mongoose.Schema({
   password: String,
   bio: String,
   displayPic: String,
-  list: [{
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'items',  
-  }],
-  // completed_req: Number,
-})
+}, {collection: "users"})
 
 module.exports = mongoose.model("users", userSchema);

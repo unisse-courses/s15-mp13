@@ -17,8 +17,16 @@ A step by step series of examples that tell you how to get a development env run
 1. Clone this repository: `git clone https://github.com/unisse-courses/s15-mp13.git`
 2. Navigate to the directory: `cd s15-mp13`
 3. Install the dependencies: `npm install`   
-4. Run the server: `node app.js`
+4. Run the server: `npx nodemon`
     * Navigate to `http://localhost:3000/` in the browser to view the app.
+
+## Sample users:
+
+Username: kimcat
+Password: 12345
+
+Username: acat
+Password: 12345
 
 ## Team Members:
 
