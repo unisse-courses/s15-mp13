@@ -12,7 +12,7 @@ const { envPort, sessionKey } = require('./config');
 
 /* EXPRESS APPLICATION */
 const app = express();
-const port = process.env.port||3000;
+const port = envPort||3000;
 
 /* INITIALIZING DOTENV (to access db info)*/
 require('dotenv').config(); 
