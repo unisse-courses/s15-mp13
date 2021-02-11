@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { dbURL } = require('../config');
 const options = {
 	useUnifiedTopology: true,
-	useNewUrlParser: true
+	useFindAndModify: true
 };
 
 const database = {

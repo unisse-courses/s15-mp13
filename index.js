@@ -6,6 +6,8 @@ const bodyParser = require ('body-parser');
 const cookieParser = require('cookie-parser'); //generates cookies to keep track of logged-in user
 const session = require('express-session'); //keeps track of who's logged in
 const mongoose = require('mongoose');
+//For sessions
+const MongoStore = require('connect-mongo')(session);
 const path = require('path');
 
 /* INITIALIZING DOTENV (to access db info)*/
@@ -26,7 +28,7 @@ app.use(cookieParser());
 
 app.use(session({
 	secret: sessionKey,
-	name: 'session',
+	store: new MongoStore({ mongooseConnection: mongoose.connection }),
 	resave: true,
 	saveUninitialized: true
 }));
