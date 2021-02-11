@@ -8,14 +8,14 @@ const session = require('express-session'); //keeps track of who's logged in
 const mongoose = require('mongoose');
 const path = require('path');
 
+/* INITIALIZING DOTENV (to access db info)*/
+require('dotenv').config(); 
+
 const { envPort, sessionKey } = require('./config');
 
 /* EXPRESS APPLICATION */
 const app = express();
 const port = envPort||3000;
-
-/* INITIALIZING DOTENV (to access db info)*/
-require('dotenv').config(); 
 
 /* CONNECT TO DB */ 
 const db = require('./models/db');
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(session({
 	secret: sessionKey,
 	name: 'session',
-	resave: false,
+	resave: true,
 	saveUninitialized: true
 }));
 
