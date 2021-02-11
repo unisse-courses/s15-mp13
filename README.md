@@ -21,8 +21,6 @@ Bucketlist is a webapp for people to share their bucketlist ideas, gather inspir
 - [mongodb](https://www.npmjs.com/package/mongodb)
 - [mongoose](https://www.npmjs.com/package/mongoose)
 - [validator](https://www.npmjs.com/package/validator)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [nodemon](https://www.npmjs.com/package/nodemon)
 
 ## Project Setup (Local)
 1. Clone this repository: `git clone https://github.com/unisse-courses/s15-mp13.git`
