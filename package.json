@@ -4,10 +4,9 @@
   "description": "* Catahan, Anna Kumiko\r * Cai, Mark Jayson\r * Ranjo, Joshua Aaron P",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
     "debug": "node -r dotenv/config index.js",
-    "dev": "node -r dotenv/config index.js"
+    "dev": "node -r dotenv/config index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +25,7 @@
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.1",
     "express-session": "^1.17.1",
@@ -36,6 +36,6 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.7"
   }
 }
