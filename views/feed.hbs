@@ -9,9 +9,9 @@
             <a class="navbar-brand BL" href="/landing" style="font-family: Acme, sans-serif;">BucketList</a>
             <div class="navbar-text actions collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#features">Features</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/landing#about">About</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/landing#features">Features</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/landing#team">Team</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/feed">Feed</a></li>
                 </ul>
                     <button class="btn btn-light action-button" id="openLogin" style="height: 36px;padding-top: 5px; margin-right:15px">Log In</button> <br>
@@ -19,77 +19,44 @@
             </div>
         </div>
     </nav>
+</div>
 
     <div data-bs-parallax-bg="true" style="margin-top:-45px;background-image:url(https://images.unsplash.com/photo-1542359649-31e03cd4d909?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80);background-position:center;background-size:cover;">
         <h1 class="display-3 text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="padding-top: 107px;color: rgb(0,0,0);font-size: 80px;font-family: Acme, sans-serif;">BucketList</h1>
         <p class="text-center" style="color: rgb(157, 157, 157);font-size: 20px;"><strong>The place to gather ideas for things to accomplish in life.</strong></p><br>
     </div>
 
-    <div id="about" class="highlight-clean">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">What is BucketList?</h2>
-                <p class="text-center">
-                    Have you ever thought of the things you could do before you die? Or would you like ideas or goals that would seem fun to do?
-                    <br> <br>
-                    <strong> Then this is the place for you. </strong> <br> <br>
-                    Here at BucketList, you can list down the things you want to accomplish, share
-                    it with other people, look for inspiration, and ask help from the friendly community.
-                    <br><br>
-                    We want to work <strong>together</strong>  with you here at BucketList!<br></p>
-            </div>
-            <div class="buttons"></div>
+<div>
+    <div id="homeFeed" style="padding:80px">
+    {{#each tasks}}
+    <div class="shadow p-3 mb-5 bg-white rounded d-inline-block homeCard" style="width: 30%; margin: 15px;padding: 30px; padding-bottom: 30px" id="openLogin">
+        <label style="cursor: pointer;font-size:20px;padding-bottom:10px;" title="View user profile">
+            <strong>{{username}}</strong></label>
+        
+        <label style="padding-left:10px;font-size:16px;font-style: italic;color:rgb(111, 144, 145)"> Posted {{dateAdded}}</label> <br>
+       
+        <div style="padding-left: 20px;">
+            <label style="cursor: default; font-size: 18px;font-weight:500" title="View task details">
+                {{title}}</label>  <br> <br> <br>
+            <label title="View task details" style="font-size: 18px;font-style:italic;margin-top:-5px">{{description}}</label> 
+        </div>
+        
+        <div style="padding-left: 20px;margin-top:20px">
+            {{#if isRequested}}
+            <i title="Help Requested" style="padding-right:25px" class="request fa fa-question-circle icon fa-lg"></i>
+            {{else}}
+            <i title="Help Not Requested" style="padding-right:25px" class="request2 fa fa-circle icon fa-lg"></i>
+            {{/if}}
+        <button id="openLogin" style="background:none;border:none; padding-right: 25px">
+            <i title="View comments"  style="color:#2483a3" class="fa fa-comments fa-lg">
+            </i>  {{numComments}}</button>
+        <button id="openLogin" class="add-task">
+                    <i title="Add Task to List" class="fa fa-user-plus fa-lg"></i></button>{{numAdded}}
         </div>
     </div>
-
-    <div id="features" class="features-boxed">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">Features </h2>
-            </div>
-            <div class="row justify-content-center features">
-                <div class="col-sm-6 col-md-5 col-lg-3 item" style="opacity: 1;">
-                    <div class="box"><i class="fa fa-signing icon" data-bs-hover-animate="swing"></i>
-                        <h3 class="name">Share</h3><a class="learn-more">Build your own bucketlist and share it to the world.</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-3 item">
-                    <div class="box"><i class="fab fa-searchengin icon" data-bs-hover-animate="swing"></i>
-                        <h3 class="name">Discover</h3><a class="learn-more">Look for inspiration from what other people share.</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-3 offset-lg-0 item">
-                    <div class="box"><i class="fa fa-slideshare icon" data-bs-hover-animate="swing"></i>
-                        <h3 class="name">Collaborate</h3><a class="learn-more">Tag items as requests to get some help from others.</a></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
+    {{/each}}
     </div>
-
-    <div id="team" class="features-boxed">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">Team</h2>
-            </div>
-            <div class="row justify-content-center features">
-                <div class="col-sm-6 col-md-5 col-lg-3 item">
-                    <div class="box"><i class="fa fa-cube icon" data-bs-hover-animate="swing"></i>
-                        <h3 class="name"><strong>CaiMarkJayson</strong></h3><a class="learn-more">filler</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-3 item">
-                    <div class="box"><i class="fas fa-cube icon" data-bs-hover-animate="swing"></i>
-                        <h3 class="name">Algernoot</h3><a class="learn-more">filler</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-3 item">
-                    <div class="box"><i class="fa fa-cube icon" data-bs-hover-animate="swing"></i>
-                        <h3 class="name"><strong>annakumiko</strong></h3><a class="learn-more">filler</a></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <div id="team" class="team-clean"></div>
-    
-</div>
+<div>
 
 {{!-- LOGIN --}}
     <div id="login-div" class="login-clean">

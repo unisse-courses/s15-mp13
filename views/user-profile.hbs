@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<title> {{fullName}} (@{{username}})</title>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" style="text-align: center; padding-bottom:10px;">
+            
+                <img class="rounded-circle" src="{{{displayPic}}}" style="width: 200px;height: 200px;">
+                <h1  style="font-size: 28px;">{{fullName}}</h1>
+                <h1 id="username" style="font-size: 20px;color: rgb(93,94,95);">@{{username}}</h1> <br> <br>
+                <p style="width:auto">{{bio}}<br><br>&nbsp;<br></p>
+            
+            
+        </div>
+            
+            <div class="col-md-8">
+                <div>
+                    <div class="container">
+                        <div class="table-wrapper">
+                            <div class="table-title">
+                                <div class="row">
+                                    <div class="col-sm-4"><h2>  Task <b>List</b></h2></div>
+                                    <div class="col-sm-4" align="center8">
+                                        <div class="search-box">
+                                            <input type="text" id="tagsrch" class="form-control" placeholder="Search tags…">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            
+                            <br>
+
+                            <table class="table table-hover" style="margin-top: 10px;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Task</th>
+                                        <th>Date Added</th>
+                                        <th></th> 
+                                        <th></th>
+                                        {{!-- <th></th> --}}
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {{#each tasks}}
+                                    <tr id="{{{taskID}}}">
+                                        <td class="marbox">
+                                            <button class="uncomplete" style="cursor: default;" title="Mark Complete" ><i class="fa fa-square-o icon fa-lg"></i></button>
+                                        </td>
+
+                                        <td onclick="window.location.href = '/view-utask/{{{taskID}}}'" id="taskTitle" class="title">{{title}}</td>
+                                        <td class="date">{{dateAdded}}</td>
+
+                                        <td class="marbox">
+                                            {{#if isRequested}}
+                                            <button class="request" style="cursor: help;" title="Help Requested" data-toggle="tooltip"><i class="fa fa-question-circle icon fa-lg"></i></button>
+                                            {{else}}
+                                            <button class="request2" style="cursor: default;" title="Help Not Requested" data-toggle="tooltip"><i class="fa fa-circle icon fa-lg"></i></button>
+                                            {{/if}}
+                                        </td>
+
+                                        <td class="marbox">
+                                            <button id="addPTask" class="add-task"><i title="Add Task to List" class="fa fa-user-plus fa-lg"></i></button>
+                                        </td>
+                                    </tr>
+                                   {{/each}}
+
+                                   {{#each done}}
+                                    <tr id="{{{taskID}}}">
+                                        <td class="marbox">
+                                            <button class="complete" style="cursor: default;" title="Mark Complete"><i class="fa fa-check-square icon fa-lg"></i></button>
+                                        </td>
+
+                                        <td onclick="window.location.href = '/view-task/{{{taskID}}}'" id="taskTitle" style="color:grey" class="title">{{title}}</td>
+                                        <td style="color:grey" class="date">{{dateAdded}}</td>
+                                                            
+                                        <td class="marbox">
+                                            {{#if isRequested}}
+                                            <button class="unrequest" style="cursor: help;" title="Help Requested" data-toggle="tooltip"><i class="fa fa-question-circle icon fa-lg"></i></button>
+                                            {{else}}
+                                            <button class="unrequest2" style="cursor: default;" title="Help Not Requested" data-toggle="tooltip"><i class="fa fa-circle icon fa-lg"></i></button>
+                                            {{/if}}
+                                        </td>
+
+                                        <td class="marbox">
+                                            <button id="addPTask" class="add-task2"><i title="Add Task to List" class="fa fa-user-plus fa-lg"></i></button>
+                                        </td>
+                                    </tr>
+                                   {{/each}}
+                                </tbody>
+                            </table>
+                          
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+    </div> <br>
+</div>

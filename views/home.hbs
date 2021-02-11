@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<title>BucketList | Home</title>
+
+<div>
+    <div data-bs-parallax-bg="true" style="height: 155px; margin-top:-45px;background: linear-gradient(rgba(49,150,181,0.35) 0%, rgba(255,255,255,0) 63%);">
+        <h1 style="font-family: Acme, sans-serif;padding-top: 45px; padding-left:80px">Home</h1>
+    </div> 
+
+    <div id="homeFeed" style="padding:80px">
+    {{#each tasks}}
+    <div class="shadow p-3 mb-5 bg-white rounded d-inline-block homeCard" style="width: 30%; margin: 15px;padding: 30px; padding-bottom: 30px" id={{taskID}}>
+        <label id="username" style="cursor: pointer;font-size:20px;padding-bottom:10px;" title="View user profile" onclick="window.location.href = '/profile/{{{username}}}'">
+            <strong>{{username}}</strong></label>
+        
+        <label style="padding-left:10px;font-size:16px;font-style: italic;color:rgb(111, 144, 145)"> Posted {{dateAdded}}</label> <br>
+       
+        <div style="padding-left: 20px;">
+            <p id="taskTitle" style="cursor: pointer; font-size: 18px;font-weight:500" title="View task details" onclick="window.location.href = '/view-utask/{{{taskID}}}'">{{title}}</p><br>
+            <p title="View task details" style="font-size: 18px;font-style:italic;margin-top:-5px" onclick="window.location.href = '/view-utask/{{{taskID}}}'">{{description}}</p> 
+        </div>
+        
+        <div id="{{username}}" style="padding-left: 20px;margin-top:20px">
+            {{#if isRequested}}
+            <i title="Help Requested" style="padding-right:25px" class="request fa fa-question-circle icon fa-lg"></i>
+            {{else}}
+            <i title="Help Not Requested" style="padding-right:25px" class="request2 fa fa-circle icon fa-lg"></i>
+            {{/if}}
+        <button id="numComments" onclick="window.location.href = '/view-utask/{{{taskID}}}'" style="background:none;border:none; padding-right: 25px">
+            <i title="View comments"  style="color:#2483a3" class="fa fa-comments fa-lg">
+            </i>  {{numComments}}</button>
+        <button id="addUTask" class="add-task">
+                    <i title="Add Task to List" class="fa fa-user-plus fa-lg"></i></button>{{numAdded}}
+        </div>
+    </div>
+    {{/each}}
+    </div>
+<div>

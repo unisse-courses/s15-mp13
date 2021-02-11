@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<title>BucketList | View Task</title>
+
+<h6 style="font-weight:bold; margin-left:125px;cursor: pointer;" onclick="window.history.back()"> < Back </h6>
+<div class="form-container">
+    {{!-- <h1 class="text-center">Comments</h1> --}}
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-md-8">
+                <div>
+                    <h3 style="display: inline-block">{{title}}</h3>
+                    <button style="display: inline-block;vertical-align:4px" id="editBTN" onclick="window.location.href = '/edit-task/{{{taskID}}}'" class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit icon fa-lg" ></i></button>
+                    <p style="margin-top: -8px;color: rgb(85,93,101);font-style:italic">{{description}}<br></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="margin-top: 0px;">
+                    <h5 style="display: inline-block;"><strong>Tags</strong></h5>
+
+                    {{#if isRequested}}
+                    <button id="unreqBTN" class="request" title="Help Requested" data-toggle="tooltip">
+                        <i style="display: inline-block;vertical-align:0px" class="fa fa-question-circle icon fa-lg"></i></button>
+                    {{else}}
+                    <button id="reqBTN" class="request2" title="Help Not Requested" data-toggle="tooltip">
+                        <i style="display: inline-block;vertical-align:0px" class="fa fa-circle icon fa-lg"></i></button>
+                    {{/if}}
+
+                    <div style="color: rgb(85,93,101);font-style:italic;">
+                        <p style="display: inline-block;">{{tag1}}</p> 
+                        <p style="display: inline-block;">• {{tag2}}</p>
+                        <p style="display: inline-block;">• {{tag3}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="margin-bottom: 20px;">
+                <div style="margin-top: 20px;">
+                    <input id="commentInput" onkeyup="EnableDisable(this)" class="form-control" type="text" placeholder="Write something..." style="display:inline-block;width: 80%;">
+                    <button id="addCommentBTN" class="btn btn-primary" type="button" style="margin-left: 10px;">Comment</button> <br>
+ 
+               </div>
+            </div>
+            <div style="top:5px" class="col-md-12">
+                {{#each commentsList}}
+                <div class="shadow-sm d-inline-block" style="width: 90%; margin:5px; border-radius:10px;background-color:rgb(255, 255, 255)" id="{{{commID}}}">
+                        <button id="deleteCommentBTN" title="Delete Comment" style="padding-right:15px;padding-top:15px;float:right;font-size:12px; color:#f05619;border:none; background:none" data-toggle="tooltip">
+                            <i class="fa fa-times fa-lg"></i></button>
+                        <h5 id="username" style="cursor:pointer;margin-left:30px;color: #057091;margin-top: 10px;font-weight: bold;" onclick="window.location.href = '/profile/{{{username}}}'">{{username}}</h5>
+                        <p id="comment" style="margin-left:30px;margin-top: -8px;color: #414144;">{{comment}}</p>
+                        
+                        {{!-- <button id="unlikeComment" title="Unlike Comment" style="padding-right:30px;padding-bottom:15px;float:right;font-size:12px; color:#1939f0;border:none; background:none" data-toggle="tooltip">
+                            <i class="far fa-thumbs-down fa-lg"></i> {{numDislikes}}</button>
+                        <button id="likeComment" title="Like Comment" style="padding-right:30px;padding-bottom:15px;float:right;font-size:12px; color:#1939f0;border:none; background:none" data-toggle="tooltip">
+                            <i class="far fa-thumbs-up fa-lg"></i> {{numLikes}}</button> --}}
+                <p style="display: none" id="commID">{{commID}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <p style="display: none" id="taskID">{{taskID}}</p>
+    </div>
+</div>

@@ -1,0 +1,245 @@
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #ebf4f6;
+}
+
+::-webkit-scrollbar {
+	width: 0px;  /* Remove scrollbar space */
+	background: transparent;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #509bb2;
+  text-decoration: underline;
+}
+
+.navbar-light .navbar-text a:focus, .navbar-light .navbar-text a:hover {
+  color: #509bb2;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #033453;
+  border-color: #033453;
+}
+
+.error {
+	color: red;
+	padding-top: 10px;
+}
+
+#login-div{
+  display: none;
+  position: fixed; 
+  z-index: 2; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+#register-div{
+  display: none;
+  position: fixed; 
+  z-index: 2; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 110%; 
+  overflow: hidden;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* The Close Button */
+#closeR, #closeL {
+  color: rgb(223, 87, 112);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+}
+
+#closeR:hover, #closeR:focus, #closeL:hover, #closeL:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+                  
+.uncomplete:hover, .view:hover, .edit:hover, .delete:hover, .add-task:hover  {
+  color: #1a1a1e; }
+
+.add-task {
+  color: #26bf33; 
+  background-color: Transparent;
+  border: none;    
+}
+                  
+.uncomplete {
+  color: #ffd200; 
+  background-color: Transparent;
+  border: none;    
+}
+              
+.view {
+  color: #008aff; 
+  background-color: Transparent;
+  border: none;    }
+                  
+.edit {
+  color: #00ff60;
+  background-color: Transparent;
+  border: none;    }
+
+.request {
+  color: #f05619; 
+  background-color: Transparent;
+  border: none; 
+  cursor: help;
+}
+
+.request2 {
+  color: rgb(63, 63, 63); 
+  background-color: Transparent;
+  border: none; 
+}
+
+.delete {
+  color: #ff3c00;
+  background-color: Transparent;
+  border: none;    }
+
+/* done */                
+.complete:hover, .unview:hover, .unedit:hover, .undelete:hover, .add-task2:hover {
+  color: #1a1a1e; }
+
+.add-task2 {
+  color: #69a969; 
+  background-color: Transparent;
+  border: none;    
+}
+
+.complete {
+  color: #ceb132; 
+  background-color: Transparent;
+  border: none;    
+}
+              
+.unview {
+  color: #3371a7; 
+  background-color: Transparent;
+  border: none;    }
+
+.unrequest {
+  color: #be562d; 
+  background-color: Transparent;
+  border: none; 
+  cursor: help;
+}
+
+.unrequest2 {
+  color: grey; 
+  background-color: Transparent;
+  border: none;    
+}
+
+.unedit {
+  color: #33bf69;
+  background-color: Transparent;
+  border: none;    }
+
+.undelete {
+  color: #bb4f2f;
+  background-color: Transparent;
+  border: none;    }
+
+.marbox{
+  width: 5%;}
+
+.date{
+  width: 20%;}
+
+textarea {
+resize: none;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.centerL {
+  top:50%;
+  position:absolute ;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.centerR {
+  top:45%;
+  position:absolute ;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.closeL {
+  top:5%;
+  position:absolute ;
+  left: 85%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.closeR {
+  top:5%;
+  position:absolute ;
+  left: 90%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.mainNav {
+  font-family: Acme, sans-serif;
+  cursor: pointer;
+}
+
+.showProfile{
+  display: none;
+}
+
+.homeCard {
+  background-color: #c8e6f3ce;
+  cursor: pointer;
+}
+
+.homeCard:hover {
+  /* background-color:#a0b6edb1; */
+  background-color: #b3dfee;
+  box-shadow: 10px 10px 5px #212529;
+}

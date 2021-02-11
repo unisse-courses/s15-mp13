@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<title>BucketList | Edit Task</title>
+
+<div>
+    <h3 class="text-center"><strong>Edit Task</strong></h3>
+    <div class="container" style="margin-top: 40px;">
+        <div class="row">
+            <div class="col-md-8">
+                <div>
+                <label style="font-weight:bold;margin-right:43px;font-size: 18px;">Task Title</label>
+                <input type="text" style="width: 500px;font-size: 18px;" id="title" placeholder="Title" value="{{title}}"> <br>
+                <label style="font-weight:bold;margin-right:25px;margin-top:18px;font-size: 18px">Description</label><br>
+                <textarea style="width: 620px;margin-top: -5px;font-size: 18px;" placeholder="Description" id="description">{{description}}</textarea></div>
+            </div>
+            <div class="col-md-4" style="margin-left: -50px;">
+                <div style="width: 300px;font-size: 20px;">
+                <label style="font-weight:bold;font-size: 18px;">Tags</label>
+                <input type="text" style="width: 230px;font-size: 16px;margin-left: 20px;" id="tag1" placeholder="Tag 1" value="{{tag1}}"> <br>
+                <input type="text" style="width: 230px;margin-top: 10px;margin-left: 60px;font-size: 16px;" placeholder="Tag 2" id="tag2" value="{{tag2}}"> <br> 
+                <input type="text" style="width: 230px;font-size: 16px;margin-top: 10px;margin-left: 60px" placeholder="Tag 3" id="tag3" value="{{tag3}}"></div>
+            </div>
+        </div>
+    </div> <br>
+    <div class="center" style="margin-top: 30px;">
+        <p id="updateTaskError" class="error"> {{updateTaskError}} </p>
+        <button class="btn btn-primary" type="button" id="updateTaskBTN">Update</button>
+        <button onclick="window.location.href = '/view-task/{{{taskID}}}'" class="btn btn-primary" type="button" style="padding-left: 24px0px;">Cancel</button>
+        <p style="display: none" id="taskID">{{taskID}}</p>
+    </div>
+</div>

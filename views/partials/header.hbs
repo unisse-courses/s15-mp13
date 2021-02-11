@@ -1,18 +1,25 @@
+<!DOCTYPE html> 
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button fixed-top" style="height: 55px;">
-        <div class="container"><a class="navbar-brand" href="/" style="font-family: Acme, sans-serif;">BucketList</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div
-                class="collapse navbar-collapse shadow-lg" id="navcol-1">
+        <div class="container">
+            <a class="navbar-brand BL" href="/" style="font-family: Acme, sans-serif;">BucketList</a>
+            <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"></li>
-                </ul><input class="border rounded d-xl-flex mr-auto align-items-xl-start" type="search" style="width: 370px;" placeholder="Search user...">
-                <div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">More</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="/profile">Profile</a>
-                    <a class="dropdown-item" role="presentation" href="/account-settings">Account Settings</a>
-                    <a class="dropdown-item" role="presentation" href="/">Logout</a></div>
+                </ul>
+                <input class="border rounded d-xl-flex mr-auto align-items-xl-start" type="search" style="width: 370px;" placeholder="Search user...">
+                <a style="font-family: Acme, sans-serif" href='/profile' class="navbar">Hi, {{firstName}}!</a>
+                <div class="dropdown">
+                    <a class="navbar dropdown-toggle mainNav" data-toggle="dropdown" aria-expanded="false">More</a>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" role="presentation" href="/profile">Profile</a>
+                            <a class="dropdown-item" role="presentation" href="/settings">Settings</a>
+                            <form method="POST" action="/logout">
+                            <a class="dropdown-item" role="presentation" onclick="this.parentNode.submit();">Logout</a></form>
+                        </div>
                 </div>
-        </div>
+            </div>
         </div>
     </nav>
     
