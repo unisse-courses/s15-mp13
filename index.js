@@ -8,7 +8,7 @@ const session = require('express-session'); //keeps track of who's logged in
 const mongoose = require('mongoose');
 const path = require('path');
 
-require('dotenv').config();
+const { envPort, sessionKey } = require('./config');
 
 /* EXPRESS APPLICATION */
 const app = express();
@@ -25,9 +25,9 @@ db.connect();
 app.use(cookieParser());
 
 app.use(session({
-	secret: 'secret',
+	secret: sessionKey,
 	name: 'session',
-	resave: true,
+	resave: false,
 	saveUninitialized: true
 }));
 

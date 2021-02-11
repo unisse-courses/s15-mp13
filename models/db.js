@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-// const url = 'mongodb://adminBL:TVmLGaCANM2FoyoM@bl-cluster-shard-00-00.lgaxx.mongodb.net:27017,bl-cluster-shard-00-01.lgaxx.mongodb.net:27017,bl-cluster-shard-00-02.lgaxx.mongodb.net:27017/bl-db?authSource=admin&replicaSet=atlas-wfdg1t-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true';
-const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@bl-cluster-shard-00-00.lgaxx.mongodb.net:27017,bl-cluster-shard-00-01.lgaxx.mongodb.net:27017,bl-cluster-shard-00-02.lgaxx.mongodb.net:27017/bl-db?authSource=admin&replicaSet=atlas-wfdg1t-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true`;
+const { dbURL } = require('../config');
 const options = {
 	useUnifiedTopology: true,
 	useNewUrlParser: true
@@ -10,7 +9,7 @@ const options = {
 const database = {
 	connect: async function() {
 		try {
-			await mongoose.connect(url, options);
+			await mongoose.connect(dbURL, options);
 			console.log('Connected to db');
 		} catch (e) {
 			throw e;

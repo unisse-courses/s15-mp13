@@ -4,7 +4,9 @@
   "description": "* Catahan, Anna Kumiko\r * Cai, Mark Jayson\r * Ranjo, Joshua Aaron P",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon -r dotenv/config index.js",
+    "dev": "node -r dotenv/config index.js"
   },
   "repository": {
     "type": "git",
