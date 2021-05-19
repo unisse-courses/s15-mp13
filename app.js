@@ -6,16 +6,18 @@ const bodyParser = require ('body-parser');
 const cookieParser = require('cookie-parser'); //generates cookies to keep track of logged-in user
 const session = require('express-session'); //keeps track of who's logged in
 const mongoose = require('mongoose');
+//For sessions
+const MongoStore = require('connect-mongo')(session);
 const path = require('path');
-
-require('dotenv').config();
-
-/* EXPRESS APPLICATION */
-const app = express();
-const port = process.env.port||3000;
 
 /* INITIALIZING DOTENV (to access db info)*/
 require('dotenv').config(); 
+
+const { envPort, sessionKey } = require('./config');
+
+/* EXPRESS APPLICATION */
+const app = express();
+const port = envPort || 3000;
 
 /* CONNECT TO DB */ 
 const db = require('./models/db');
@@ -25,8 +27,8 @@ db.connect();
 app.use(cookieParser());
 
 app.use(session({
-	secret: 'secret',
-	name: 'session',
+	secret: sessionKey,
+	store: new MongoStore({ mongooseConnection: mongoose.connection }),
 	resave: true,
 	saveUninitialized: true
 }));

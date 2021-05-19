@@ -6,8 +6,6 @@ const commentModel = require('../models/comments');
 const taskModel = require('../models/tasks');
 const userModel = require('../models/users');
 const db = require('../models/db');
-const tasks = require('../models/tasks');
-const comments = require('../models/comments');
 
 /* CONSTRUCTORS and other FUNCTIONS */
 function generateTaskID() {
@@ -126,15 +124,14 @@ const rendFunctions = {
 			if (!user) // user does not exist
 				res.send({status: 409});
 			else {
-				// bcrypt.compare(password, user.password, function(err, match) {
-				// userModel.findOne({password: user.password}, function(err, match) {
-						if (password === user.password){
-							req.session.user = user;
-							res.send({status: 200});
-							// console.log("-- Logged in successfully.")
-						} else
-							res.send({status: 401});
-				// });
+				bcrypt.compare(password, user.password, function(err, match) {
+					if (match){
+						req.session.user = user;
+						res.send({status: 200});
+						// console.log("-- Logged in successfully.")
+					} else
+						res.send({status: 401});
+				});
 			}		
 		} catch(e) {
 			console.log(e);
@@ -161,8 +158,11 @@ const rendFunctions = {
 				res.send({status: 402});
 
 			else{ // email and username is available
-				var user = addUser(firstName, lastName, email, username, password);
-
+				var hashPass = await bcrypt.hash(req.body.password, saltRounds);
+				console.log(hashPass);
+				
+				var user = addUser(firstName, lastName, email, username, hashPass);
+				
 				userModel.create(user, function(err){		
 					if (err) {
 						res.send({status: 500});
@@ -182,24 +182,28 @@ const rendFunctions = {
 	getHome: async function(req, res, next) {
 		if (req.session.user){
 			//display all public tasks
-			taskModel.find({isPublic: true, isComplete: false}, async function(err, data) {
+			taskModel.find({isPublic: true, isComplete: false}, async function(err, data) {			
 				var taskList = JSON.parse(JSON.stringify(data));
-		
+
 				var numComments = 0;
 				for(var i = 0; i < taskList.length; i++){
-					// find comments in task
-					var details = await db.findMany(commentModel, {taskID: taskList[i].taskID});
-					var commentsList = JSON.parse(JSON.stringify(details));
-				
-					taskList[i].numComments = commentsList.length;
 
-					var date = formatDate(taskList[i].dateAdded);
-	
-					taskList[i].dateAdded = date;
+					// if(!(taskList[i].username === req.session.username)){ 
+						
+						// find comments in task
+						var details = await db.findMany(commentModel, {taskID: taskList[i].taskID});
+						var commentsList = JSON.parse(JSON.stringify(details));
+					
+						taskList[i].numComments = commentsList.length;
+
+						var date = formatDate(taskList[i].dateAdded);
+		
+						taskList[i].dateAdded = date;
+					// }
 				}
 				
 					res.render('home', {
-						tasks: taskList,
+						tasks: taskList.reverse(),
 						firstName: req.session.user.firstName,
 				});
 			});
@@ -227,7 +231,7 @@ const rendFunctions = {
 			}
 			
 				res.render('feed', {
-					tasks: taskList,
+					tasks: taskList.reverse(),
 			});
 		});
 	},
@@ -269,9 +273,46 @@ const rendFunctions = {
 		}
 	},
 
+	getUpdateProfile: async function(req, res, next) {
+		if (req.session.user){
+			// console.log(req.session.user);
+
+		taskModel.find({username: req.session.user.username, isComplete: false}, function(err, data) {
+			var taskList = JSON.parse(JSON.stringify(data));
+
+			for(var i = 0; i < taskList.length; i++) {
+				var date = formatDate(taskList[i].dateAdded);
+
+				taskList[i].dateAdded = date;
+			}
+
+			taskModel.find({username: req.session.user.username, isComplete: true}, function(err, data) {
+				var doneList = JSON.parse(JSON.stringify(data));
+
+				for(var i = 0; i < doneList.length; i++) {
+					var date = formatDate(doneList[i].dateAdded);
+
+					doneList[i].dateAdded = date;
+				}
+
+				res.render('update-profile', {
+					firstName: req.session.user.firstName,
+					lastName: req.session.user.lastName,
+					username: req.session.user.username,
+					bio: req.session.user.bio,
+					tasks: taskList,
+					done: doneList,
+				});
+			});
+		});
+		} else {
+			res.redirect('landing');
+		}
+	},
+
 	postUpdateProfile: async function(req, res, next) {
 		let { firstName, lastName, bio } = req.body;
-		
+		// console.log(firstName, lastName, bio);
 		userModel.findOneAndUpdate(
 			{username: req.session.user.username},
 			{ $set: { 
@@ -284,15 +325,8 @@ const rendFunctions = {
 				}
 
 				else{
-					req.session.reload(function(err) { // reload not working
-						if(err) console.log(err);
-					
-						else{
-							res.send({status: 200});
-							console.log("-- Profile updated.");
-						}
-					});
-					
+					res.send({status: 200});
+					console.log("-- Profile updated.");				
 				}
 			});
 	},
@@ -703,6 +737,36 @@ const rendFunctions = {
 			});		
 		});		
 	},
+
+	postLikeComment: async function(req, res, next) {
+		let { commID } = req.body;
+		console.log(commID);
+
+		// increment numLikes
+		var comment = await commentModel.findOne({commID: commID});
+		var increment = comment.numLikes + 1;
+		
+		try{
+			console.log(increment);
+			commentModel.findOneAndUpdate(
+				{commID: commID},
+				{ $set: { 
+					numLikes: increment,
+				}},
+				{ useFindAndModify: false},
+				function(err, match) {
+					if (err) {
+						res.send({status: 500});
+					}
+					else{
+						res.send({status: 200});
+					}
+				});
+		} catch(e) {
+			console.log(e);
+		}
+	},
+
 }
 
 

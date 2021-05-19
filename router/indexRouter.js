@@ -7,6 +7,7 @@ router.get('/', controller.getHome);
 router.get('/feed', controller.getFeed);
 router.get('/landing', controller.getLanding);
 router.get('/profile', controller.getProfile);
+router.get('/update-profile', controller.getUpdateProfile);
 router.get('/profile/:username', controller.getUserProfile);
 router.get('/settings', controller.getSettings);
 
@@ -33,6 +34,7 @@ router.post('/unreq-task', controller.postUnrequestTask);
 router.post('/delete-task', controller.postDeleteTask);
 router.post('/add-comment', controller.postAddComment);
 router.post('/delete-comment', controller.postDeleteComment);
+router.post('/like-comment', controller.postLikeComment);
 
 
 module.exports = router;

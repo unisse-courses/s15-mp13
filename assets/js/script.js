@@ -147,19 +147,6 @@ $(document).ready(function() {
 		}
 	});
 
-	// HIDE ELEMENTS with hide class and SHOW text inputs
-	$('button#editProfile').click(function() {
-		var hide = document.getElementsByClassName('hideProfile');
-		var show = document.getElementsByClassName('showProfile');
-		
-			for(var i = 0; i < hide.length; i++) 
-				hide[i].style.display = 'none';
-			
-			for(var i = 0; i < show.length; i++) 
-				show[i].style.display = 'inline';
-	});
-
-
 	// UPDATE PROFILE
 	$('button#saveProfileBTN').click(function() {
 		var firstName = $('#firstName').val();
@@ -175,7 +162,7 @@ $(document).ready(function() {
 				switch (res.status){
 					case 200: {
 						alert('Profile updated!');
-						window.location.reload();
+						window.location.href = '/profile';
 						break;
 					}
 					case 500: {
@@ -253,9 +240,9 @@ $(document).ready(function() {
 		}
 	});
 
-	// ADD TASK FROM OTHERS
+	// ADD TASK FROM OTHERS (FROM HOME)
 	$('button#addUTask').click(function() {
-		var card = $(this).parent().parent(); //get row of clicked button
+		var card = $(this).parent().parent(); 
 		var formerTaskID = card.attr("id");
 		var title = $('#taskTitle').text();
 		var username = ($(this).parent()).attr("id");
@@ -284,14 +271,14 @@ $(document).ready(function() {
 		}
 	});
 
-	// ADD TASK FROM OTHERS
+	// ADD TASK FROM OTHERS (FROM THEIR PROFILE)
 	$('button#addPTask').click(function() {
 		var row = $(this).parent().parent(); //get row of clicked button
 		var formerTaskID = row.attr("id"); //get clientID from row
 		var title = $('#taskTitle').text();
 		var username = $('#username').text();
 		console.log(formerTaskID);
-		var description = 'Task borrowed from ' + username;
+		var description = 'Task borrowed from @' + username;
 		var tag1 = 'borrowed'
 
 		console.log(title, description);
@@ -314,7 +301,6 @@ $(document).ready(function() {
 			});
 		}
 	});
-
 
 	// EDIT TASK
 	$('button#updateTaskBTN').click(function() {
@@ -555,6 +541,24 @@ $(document).ready(function() {
 				}
 			});
 		}
+	});
+
+	// LIKE COMMENT
+	$('button#likeComment').click(function() {
+		var card = $(this).parent(); // get comment card
+		var commID = card.attr("id");
+		console.log(commID);
+		$.post('/like-comment', { commID: commID }, function(res) {
+			switch (res.status){
+				case 200: {
+					window.location.reload();
+					break;
+				}
+				case 500: {
+					break;
+				}
+			}
+		});
 	});
 
 });

@@ -16,7 +16,7 @@
             <div class="col-md-4" style="margin-left: -50px;">
                 <div style="width: 300px;font-size: 20px;">
                 <label style="font-weight:bold;font-size: 18px;">Tags</label>
-                <input type="text" style="width: 230px;font-size: 16px;margin-left: 20px;" id="tag1" placeholder="Tag 1" value="{{tag1}}"> <br>
+                <input type="text" style="width: 230px;font-size: 16px;margin-left: 18px;" id="tag1" placeholder="Tag 1" value="{{tag1}}"> <br>
                 <input type="text" style="width: 230px;margin-top: 10px;margin-left: 60px;font-size: 16px;" placeholder="Tag 2" id="tag2" value="{{tag2}}"> <br> 
                 <input type="text" style="width: 230px;font-size: 16px;margin-top: 10px;margin-left: 60px" placeholder="Tag 3" id="tag3" value="{{tag3}}"></div>
             </div>
@@ -25,7 +25,7 @@
     <div class="center" style="margin-top: 30px;">
         <p id="updateTaskError" class="error"> {{updateTaskError}} </p>
         <button class="btn btn-primary" type="button" id="updateTaskBTN">Update</button>
-        <button onclick="window.location.href = '/view-task/{{{taskID}}}'" class="btn btn-primary" type="button" style="padding-left: 24px0px;">Cancel</button>
+        <button style="border:none;background-color:rgb(136, 136, 136)" onclick="window.location.href = '/view-task/{{{taskID}}}'" class="btn btn-primary" type="button" style="padding-left: 24px0px;">Cancel</button>
         <p style="display: none" id="taskID">{{taskID}}</p>
     </div>
 </div>

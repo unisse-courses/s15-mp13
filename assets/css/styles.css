@@ -229,10 +229,6 @@ resize: none;
   cursor: pointer;
 }
 
-.showProfile{
-  display: none;
-}
-
 .homeCard {
   background-color: #c8e6f3ce;
   cursor: pointer;
