@@ -51,10 +51,8 @@
                         <h5 id="username" style="cursor:pointer;margin-left:30px;color: #057091;margin-top: 10px;font-weight: bold;" onclick="window.location.href = '/profile/{{{username}}}'">{{username}}</h5>
                         <p id="comment" style="margin-left:30px;margin-top: -8px;color: #414144;">{{comment}}</p>
                         
-                        {{!-- <button id="unlikeComment" title="Unlike Comment" style="padding-right:30px;padding-bottom:15px;float:right;font-size:12px; color:#1939f0;border:none; background:none" data-toggle="tooltip">
-                            <i class="far fa-thumbs-down fa-lg"></i> {{numDislikes}}</button>
                         <button id="likeComment" title="Like Comment" style="padding-right:30px;padding-bottom:15px;float:right;font-size:12px; color:#1939f0;border:none; background:none" data-toggle="tooltip">
-                            <i class="far fa-thumbs-up fa-lg"></i> {{numLikes}}</button> --}}
+                            <i class="far fa-thumbs-up fa-lg"></i> {{numLikes}}</button>
                 <p style="display: none" id="commID">{{commID}}</p>
                 </div>
                 {{/each}}

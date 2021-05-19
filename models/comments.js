@@ -6,7 +6,6 @@ var commentSchema = new mongoose.Schema({
     username: String,
     comment: String,
     numLikes: Number,
-    numDislikes: Number,
 }, {collection: "comments"});
 
 module.exports = mongoose.model("comments", commentSchema);

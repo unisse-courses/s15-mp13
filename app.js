@@ -17,7 +17,7 @@ const { envPort, sessionKey } = require('./config');
 
 /* EXPRESS APPLICATION */
 const app = express();
-const port = envPort||3000;
+const port = envPort || 3000;
 
 /* CONNECT TO DB */ 
 const db = require('./models/db');

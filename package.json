@@ -1,12 +1,11 @@
 {
   "name": "s15-mp13",
   "version": "1.0.0",
-  "description": "* Catahan, Anna Kumiko\r * Cai, Mark Jayson\r * Ranjo, Joshua Aaron P",
-  "main": "index.js",
+  "description": "List your goals for your future.",
+  "main": "app.js",
   "scripts": {
-    "debug": "node -r dotenv/config index.js",
-    "dev": "node -r dotenv/config index.js",
-    "start": "node index.js"
+    "test": "node -r dotenv/config app",
+    "start": "node app"
   },
   "repository": {
     "type": "git",
@@ -22,21 +21,21 @@
     "node": "14.x"
   },
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
     "debug": "^4.3.1",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.1",
+    "express-handlebars": "^4.0.6",
     "express-session": "^1.17.1",
-    "handlebars": "^4.7.4",
-    "mongodb": "^3.5.6",
-    "mongoose": "^5.9.11",
-    "validator": "^13.0.0"
+    "handlebars": "^4.7.7",
+    "mongodb": "^3.6.7",
+    "mongoose": "^5.12.10",
+    "validator": "^13.6.0"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   }
 }

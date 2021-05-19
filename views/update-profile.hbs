@@ -5,14 +5,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4" style="text-align: center; padding-bottom:10px;">
+
+                <img class="rounded-circle" src="{{{displayPic}}}" style="width: 200px;height: 200px;"><br><br>
+                <input id="firstName" type="text" style="width: 40%;font-size: 18px;" placeholder="First Name" value="{{firstName}}">
+                <input id="lastName" type="text" style="width: 40%;font-size: 18px;" placeholder="Last Name" value="{{lastName}}"> <br>
+                <h1 style="font-size: 20px;color: rgb(93,94,95);">@{{username}}</h1> <br> <br>
+                <textarea style="width: 80%;margin-top: -5px;font-size: 18px;" placeholder="Bio" id="bio">{{bio}}</textarea> <br>
+
+                <p id="profileError" class="error"> {{profileError}} </p>
+                <button type="button" id="saveProfileBTN" class="btn btn-info add-new"><i class="far fa-edit"></i> Save Changes</button>
+                <button type="button" style="border-color:rgb(136, 136, 136);background-color:rgb(136, 136, 136)" onclick="window.location.href = '/profile'" class="btn btn-info add-new"> Cancel </button>
+                
             
-                <img class="rounded-circle" src="{{{displayPic}}}" style="width: 200px;height: 200px;">
-                <h1  style="margin-top:18px;font-size: 28px;">{{firstName}} {{lastName}}</h1> 
-                <h1  style="font-size: 20px;color: rgb(93,94,95);">@{{username}}</h1> <br> <br>
-                <p style="width:auto">{{bio}}</p> <br> <br>
-               
-                <button type="button" id="editProfile" onclick="window.location.href = '/update-profile'" class="btn btn-info add-new"><i class="fas fa-user-edit"></i> Edit Profile</button>
-              
         </div>
             
             <div class="col-md-8">
@@ -30,7 +34,7 @@
                                     
                                     <div class="col-sm-4" align="right">
                                     <div>
-                                            <button type="button" id="addbtn" style="border-color:#2d8183;background-color: #2d8183;" class="btn btn-info add-new" data-toggle="collapse" data-target="#addTask"><i class="fa fa-plus"></i> Add Task</button>
+                                            <button type="button" id="addbtn" disabled class="btn btn-info add-new" data-toggle="collapse" data-target="#addTask"><i class="fa fa-plus"></i> Add Task</button>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +83,7 @@
                                             <p id="addTaskError" class="error"> {{addTaskError}} </p>
                                             <div class="col-sm-4" align="right">
                                                 <div>
-                                                    <button style="border-color:#35925c;background-color: #35925c;" type="button" id="publishTaskBTN" class="btn btn-info add-new">Publish</button>
+                                                    <button type="button" id="publishTaskBTN" class="btn btn-info add-new"><i class="fa fa-plus"></i> Publish</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -112,14 +116,14 @@
                                         <td class="date">{{dateAdded}}</td>
                                         <td class="marbox">
                                             {{#if isPublic}}
-                                            <button id="privateBTN" class="view" title="Public Task" data-toggle="tooltip"><i class="fa fa-eye icon fa-lg"></i></button>
+                                            <button disabled id="privateBTN" class="view" title="Public Task" data-toggle="tooltip"><i class="fa fa-eye icon fa-lg"></i></button>
                                             {{else}}
-                                            <button id="publicBTN" class="view" title="Private Task" data-toggle="tooltip"><i class="fa fa-eye-slash icon fa-lg"></i></button>
+                                            <button disabled id="publicBTN" class="view" title="Private Task" data-toggle="tooltip"><i class="fa fa-eye-slash icon fa-lg"></i></button>
                                             {{/if}}
                                         </td>
 
                                         <td class="marbox">
-                                            <button id="deleteBTN" class="delete" title="Delete" data-toggle="tooltip" color=""><i class="fas fa-trash-alt icon fa-lg"></i></button>
+                                            <button disabled id="deleteBTN" class="delete" title="Delete" data-toggle="tooltip" color=""><i class="fas fa-trash-alt icon fa-lg"></i></button>
                                         </td>
                                     </tr>
                                    {{/each}}
@@ -127,21 +131,21 @@
                                    {{#each done}}
                                     <tr id="{{{taskID}}}">
                                         <td class="marbox">
-                                            <button id="uncompleteBTN" class="complete" title="Mark Complete" data-toggle="tooltip"><i class="fa fa-check-square icon fa-lg"></i></button>
+                                            <button disabled id="uncompleteBTN" class="complete" title="Mark Complete" data-toggle="tooltip"><i class="fa fa-check-square icon fa-lg"></i></button>
                                         </td>
 
                                         <td onclick="window.location.href = '/view-task/{{{taskID}}}'" style="color:grey" class="title">{{title}}</td>
                                         <td style="color:grey" class="date">{{dateAdded}}</td>
                                         <td class="marbox">
                                             {{#if isPublic}}
-                                            <button id="privateBTN" class="unview" title="Public Task" data-toggle="tooltip"><i class="fa fa-eye icon fa-lg"></i></button>
+                                            <button disabled id="privateBTN" class="unview" title="Public Task" data-toggle="tooltip"><i class="fa fa-eye icon fa-lg"></i></button>
                                             {{else}}
-                                            <button id="publicBTN" class="unview" title="Private Task" data-toggle="tooltip"><i class="fa fa-eye-slash icon fa-lg"></i></button>
+                                            <button disabled id="publicBTN" class="unview" title="Private Task" data-toggle="tooltip"><i class="fa fa-eye-slash icon fa-lg"></i></button>
                                             {{/if}}
                                         </td>
 
                                         <td class="marbox">
-                                            <button id="deleteBTN" class="undelete" title="Delete" data-toggle="tooltip" color=""><i class="fas fa-trash-alt icon fa-lg"></i></button>
+                                            <button disabled id="deleteBTN" class="undelete" title="Delete" data-toggle="tooltip" color=""><i class="fas fa-trash-alt icon fa-lg"></i></button>
                                         </td>
                                     </tr>
                                    {{/each}}
