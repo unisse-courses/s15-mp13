@@ -1,4 +1,4 @@
-# BucketList
+# BucketList <img src="https://github.com/unisse-courses/s15-mp13/blob/master/assets/img/logo.png" width="30" height="30">
 
 Bucketlist is a webapp for people to share their bucketlist ideas, gather inspiration from other users, and even collaborate with with the community in order to achieve your goals.
 
@@ -6,10 +6,29 @@ Bucketlist is a webapp for people to share their bucketlist ideas, gather inspir
 [The Bucketlist](https://the-bucketlist.herokuapp.com/)
 
 ## Prerequisites
-* [NodeJS](https://nodejs.org/en/download/) - Framework used
-* [MongoDB](https://www.mongodb.com/download-center#community) - Database used
-* [MongoDB](https://www.mongodb.com/download-center#community)
-* [MongoDB Compass](https://www.mongodb.com/download-center/compass)
+- [NodeJS](https://nodejs.org/en/download/)
+- [MongoDB Community Edition](https://www.mongodb.com/download-center#community)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas1)
+- [Heroku](https://dashboard.heroku.com/login)
+
+## Project Setup (Local)
+1. Create a copy on GitHub Desktop or clone this repository by running:
+   ```shell
+   git clone https://github.com/unisse-courses/s15-mp13.git
+   ```
+3. Navigate to the directory:
+   ```shell
+   cd s15-mp13
+   ```
+5. Install the dependencies and additional packages through the **project command line** by running:
+   ```shell
+   npm install
+   ```   
+7. Run the server at:
+   ```shell
+   node app.js
+   ```
+9. Navigate to `http://localhost:3000/` in the browser to view the app.
 
 ## Dependencies
 - [bcryptjs](https://www.npmjs.com/package/bcrypt)
@@ -23,14 +42,7 @@ Bucketlist is a webapp for people to share their bucketlist ideas, gather inspir
 - [mongoose](https://www.npmjs.com/package/mongoose)
 - [validator](https://www.npmjs.com/package/validator)
 
-## Project Setup (Local)
-1. Clone this repository: `git clone https://github.com/unisse-courses/s15-mp13.git`
-2. Navigate to the directory: `cd s15-mp13`
-3. Install the dependencies **project command line**: `npm install`   
-4. Run the server at: `node app.js`
-    * Navigate to `http://localhost:3000/` in the browser to view the app.
-
-## Upon Registering and Logging in
+## Using the System
 
 ### Register
 Register using an email address that is not yet connected to an existing account. Usernames must be unique (an error will display if inputted username already exists in the databse).
@@ -45,8 +57,6 @@ Log In using the username and password used to register or choose one of sample 
 
 ## Authors
 
-Catahan, Anna Kumiko
-Cai, Mark Jayson
-Ranjo, Joshua Aaron P
-
-
+* Catahan, Anna Kumiko
+* Cai, Mark Jayson
+* Ranjo, Joshua Aaron P
